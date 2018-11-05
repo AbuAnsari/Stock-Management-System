@@ -37,7 +37,6 @@ namespace StockManagementApplication.DAL
                 throw new Exception(e.Message);
             }
         }
-
         public DataTable GetAll()
         {
             try
@@ -47,6 +46,20 @@ namespace StockManagementApplication.DAL
                 DataTable dataTable = new DataTable();
                 dataAdapter.Fill(dataTable);
                 return dataTable;
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+        public bool Update(Category category)
+        {
+            try
+            {
+                var query = "UPDATE Categories SET Name='" + category.Name + "', UpdateBy='" + category.UpdateBy +"', UpdateDate='" + category.UpdateDate + "'" +
+                            " WHERE Id='"+category.Id+"'";
+                var rowAffected = _genericRepository.ExecuteNonQuery(query, _connectionString);
+                return rowAffected > 0;
             }
             catch (Exception e)
             {

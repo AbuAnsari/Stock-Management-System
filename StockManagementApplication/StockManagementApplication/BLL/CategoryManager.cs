@@ -46,5 +46,11 @@ namespace StockManagementApplication.BLL
                 throw new Exception(e.Message);
             }
         }
+
+        public bool Update(Category category)
+        {
+            var update = _categoryRepository.Update(category);
+            return update;
+        }
     }
 }

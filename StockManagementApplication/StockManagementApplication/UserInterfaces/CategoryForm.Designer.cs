@@ -35,7 +35,7 @@
             this.UpdateButton = new System.Windows.Forms.Button();
             this.CategoryDataGridView = new System.Windows.Forms.DataGridView();
             this.hiddenLabel = new System.Windows.Forms.Label();
-            this.categoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.ClearButton = new System.Windows.Forms.Button();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.serialDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,8 +43,7 @@
             this.createDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.updateByDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.updateDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.deleteByDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.deleteDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.categoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.CategoryDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -77,12 +76,13 @@
             // 
             // UpdateButton
             // 
-            this.UpdateButton.Location = new System.Drawing.Point(119, 63);
+            this.UpdateButton.Location = new System.Drawing.Point(119, 73);
             this.UpdateButton.Name = "UpdateButton";
             this.UpdateButton.Size = new System.Drawing.Size(75, 23);
             this.UpdateButton.TabIndex = 3;
             this.UpdateButton.Text = "Update";
             this.UpdateButton.UseVisualStyleBackColor = true;
+            this.UpdateButton.Click += new System.EventHandler(this.UpdateButton_Click);
             // 
             // CategoryDataGridView
             // 
@@ -95,9 +95,7 @@
             this.createByDataGridViewTextBoxColumn,
             this.createDateDataGridViewTextBoxColumn,
             this.updateByDataGridViewTextBoxColumn,
-            this.updateDateDataGridViewTextBoxColumn,
-            this.deleteByDataGridViewTextBoxColumn,
-            this.deleteDateDataGridViewTextBoxColumn});
+            this.updateDateDataGridViewTextBoxColumn});
             this.CategoryDataGridView.DataSource = this.categoryBindingSource;
             this.CategoryDataGridView.Location = new System.Drawing.Point(36, 118);
             this.CategoryDataGridView.Name = "CategoryDataGridView";
@@ -112,10 +110,17 @@
             this.hiddenLabel.Name = "hiddenLabel";
             this.hiddenLabel.Size = new System.Drawing.Size(0, 13);
             this.hiddenLabel.TabIndex = 5;
+            this.hiddenLabel.Visible = false;
             // 
-            // categoryBindingSource
+            // ClearButton
             // 
-            this.categoryBindingSource.DataSource = typeof(StockManagementApplication.Models.Category);
+            this.ClearButton.Location = new System.Drawing.Point(201, 73);
+            this.ClearButton.Name = "ClearButton";
+            this.ClearButton.Size = new System.Drawing.Size(75, 23);
+            this.ClearButton.TabIndex = 6;
+            this.ClearButton.Text = "Clear";
+            this.ClearButton.UseVisualStyleBackColor = true;
+            this.ClearButton.Click += new System.EventHandler(this.ClearButton_Click);
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -165,25 +170,16 @@
             this.updateDateDataGridViewTextBoxColumn.Name = "updateDateDataGridViewTextBoxColumn";
             this.updateDateDataGridViewTextBoxColumn.Visible = false;
             // 
-            // deleteByDataGridViewTextBoxColumn
+            // categoryBindingSource
             // 
-            this.deleteByDataGridViewTextBoxColumn.DataPropertyName = "DeleteBy";
-            this.deleteByDataGridViewTextBoxColumn.HeaderText = "DeleteBy";
-            this.deleteByDataGridViewTextBoxColumn.Name = "deleteByDataGridViewTextBoxColumn";
-            this.deleteByDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // deleteDateDataGridViewTextBoxColumn
-            // 
-            this.deleteDateDataGridViewTextBoxColumn.DataPropertyName = "DeleteDate";
-            this.deleteDateDataGridViewTextBoxColumn.HeaderText = "DeleteDate";
-            this.deleteDateDataGridViewTextBoxColumn.Name = "deleteDateDataGridViewTextBoxColumn";
-            this.deleteDateDataGridViewTextBoxColumn.Visible = false;
+            this.categoryBindingSource.DataSource = typeof(StockManagementApplication.Models.Category);
             // 
             // CategoryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(453, 363);
+            this.Controls.Add(this.ClearButton);
             this.Controls.Add(this.hiddenLabel);
             this.Controls.Add(this.CategoryDataGridView);
             this.Controls.Add(this.UpdateButton);
@@ -207,7 +203,6 @@
         private System.Windows.Forms.Button SaveButton;
         private System.Windows.Forms.Button UpdateButton;
         private System.Windows.Forms.DataGridView CategoryDataGridView;
-        private System.Windows.Forms.BindingSource categoryBindingSource;
         private System.Windows.Forms.Label hiddenLabel;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn serialDataGridViewTextBoxColumn;
@@ -216,7 +211,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn createDateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn updateByDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn updateDateDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn deleteByDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn deleteDateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource categoryBindingSource;
+        private System.Windows.Forms.Button ClearButton;
     }
 }

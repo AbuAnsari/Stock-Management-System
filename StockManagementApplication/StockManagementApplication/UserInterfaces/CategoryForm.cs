@@ -66,7 +66,9 @@ namespace StockManagementApplication.UserInterfaces
 
         public void RefreshFiled()
         {
-            nameTextBox.Text = "";
+            nameTextBox.Text = hiddenLabel.Text = "";
+            SaveButton.Visible = true;
+            UpdateButton.Visible = false;
         }
 
         private void CategoryDataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -75,6 +77,51 @@ namespace StockManagementApplication.UserInterfaces
             nameTextBox.Text = CategoryDataGridView.Rows[e.RowIndex].Cells[2].Value.ToString();
             SaveButton.Visible = false;
             UpdateButton.Visible = true;
+        }
+
+        private void UpdateButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (nameTextBox.Text == "")
+                {
+                    var validationMessage = "Please give category name";
+                    MessageBox.Show(validationMessage);
+                    return;
+                }
+                var category = new Category();
+                category.Id = Convert.ToInt32(hiddenLabel.Text);
+                category.Name = nameTextBox.Text;
+                category.UpdateBy = "Admin";
+                category.UpdateDate = DateTime.Now;
+                var isExist = _categoryManager.IsNameExist(category);
+                if (isExist)
+                {
+                    var validationMessage = "Name already exist. Please give another name";
+                    MessageBox.Show(validationMessage);
+                    return;
+                }
+
+                var isUpdate = _categoryManager.Update(category);
+                if (isUpdate)
+                {
+                    var successMessage = "Category info Update Successfully";
+                    RefreshFiled();
+                    MessageBox.Show(successMessage);
+                    return;
+                }
+                var failMessage = "Category info Update Successfully";
+                MessageBox.Show(failMessage);
+            }
+            catch (Exception exception)
+            {
+                throw new Exception(exception.Message);
+            }
+        }
+
+        private void ClearButton_Click(object sender, EventArgs e)
+        {
+            RefreshFiled();
         }
     }
 }
