@@ -68,5 +68,13 @@ namespace StockManagementApplication.UserInterfaces
         {
             nameTextBox.Text = "";
         }
+
+        private void CategoryDataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            hiddenLabel.Text = CategoryDataGridView.Rows[e.RowIndex].Cells[0].Value.ToString();
+            nameTextBox.Text = CategoryDataGridView.Rows[e.RowIndex].Cells[2].Value.ToString();
+            SaveButton.Visible = false;
+            UpdateButton.Visible = true;
+        }
     }
 }

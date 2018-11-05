@@ -34,6 +34,7 @@
             this.SaveButton = new System.Windows.Forms.Button();
             this.UpdateButton = new System.Windows.Forms.Button();
             this.CategoryDataGridView = new System.Windows.Forms.DataGridView();
+            this.hiddenLabel = new System.Windows.Forms.Label();
             this.categoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.serialDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -76,7 +77,7 @@
             // 
             // UpdateButton
             // 
-            this.UpdateButton.Location = new System.Drawing.Point(200, 72);
+            this.UpdateButton.Location = new System.Drawing.Point(119, 63);
             this.UpdateButton.Name = "UpdateButton";
             this.UpdateButton.Size = new System.Drawing.Size(75, 23);
             this.UpdateButton.TabIndex = 3;
@@ -100,8 +101,17 @@
             this.CategoryDataGridView.DataSource = this.categoryBindingSource;
             this.CategoryDataGridView.Location = new System.Drawing.Point(36, 118);
             this.CategoryDataGridView.Name = "CategoryDataGridView";
-            this.CategoryDataGridView.Size = new System.Drawing.Size(345, 150);
+            this.CategoryDataGridView.Size = new System.Drawing.Size(346, 233);
             this.CategoryDataGridView.TabIndex = 4;
+            this.CategoryDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CategoryDataGridView_CellDoubleClick);
+            // 
+            // hiddenLabel
+            // 
+            this.hiddenLabel.AutoSize = true;
+            this.hiddenLabel.Location = new System.Drawing.Point(119, 99);
+            this.hiddenLabel.Name = "hiddenLabel";
+            this.hiddenLabel.Size = new System.Drawing.Size(0, 13);
+            this.hiddenLabel.TabIndex = 5;
             // 
             // categoryBindingSource
             // 
@@ -173,7 +183,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(407, 291);
+            this.ClientSize = new System.Drawing.Size(453, 363);
+            this.Controls.Add(this.hiddenLabel);
             this.Controls.Add(this.CategoryDataGridView);
             this.Controls.Add(this.UpdateButton);
             this.Controls.Add(this.SaveButton);
@@ -196,6 +207,8 @@
         private System.Windows.Forms.Button SaveButton;
         private System.Windows.Forms.Button UpdateButton;
         private System.Windows.Forms.DataGridView CategoryDataGridView;
+        private System.Windows.Forms.BindingSource categoryBindingSource;
+        private System.Windows.Forms.Label hiddenLabel;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn serialDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
@@ -205,6 +218,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn updateDateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn deleteByDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn deleteDateDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource categoryBindingSource;
     }
 }
