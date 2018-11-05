@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using StockManagementApplication.UserInterfaces;
+using System;
 using System.Windows.Forms;
 
 namespace StockManagementApplication
@@ -16,7 +14,7 @@ namespace StockManagementApplication
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new HomeForm());
+            Application.Run(new CategoryForm());
         }
     }
 }

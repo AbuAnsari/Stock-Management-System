@@ -12,7 +12,7 @@ namespace StockManagementApplication.DAL
         {
             try
             {
-                var query = "INSERT INTO Categories VALUES('" + category.Name + "','" + category.CreateBy + "', '" + category.CreateDate + "')";
+                var query = "INSERT INTO Categories(Name, CreateBy, CreateDate) VALUES('" + category.Name + "','" + category.CreateBy + "', '" + category.CreateDate + "')";
                 var rowAffected = _genericRepository.ExecuteNonQuery(query, _connectionString);
                 return rowAffected > 0;
             }
