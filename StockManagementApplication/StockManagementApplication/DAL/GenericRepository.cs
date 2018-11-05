@@ -35,7 +35,6 @@ namespace StockManagementApplication.DAL
                 connection.Open();
                 var command = new SqlCommand(query, connection);
                 var reader = command.ExecuteReader();
-                connection.Close();
                 return reader;
             }
             catch (Exception e)
@@ -51,7 +50,6 @@ namespace StockManagementApplication.DAL
                 connection.Open();
                 var command = new SqlCommand(query, connection);
                 var adapter = new SqlDataAdapter(command);
-                connection.Close();
                 return adapter;
             }
             catch (Exception e)

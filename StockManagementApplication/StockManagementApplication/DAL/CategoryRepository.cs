@@ -21,5 +21,19 @@ namespace StockManagementApplication.DAL
                 throw new Exception(e.Message);
             }
         }
+
+        public bool IsNameExist(Category category)
+        {
+            try
+            {
+                var query = "SELECT * FROM Categories WHERE Name='" + category.Name + "'";
+                var reader = _genericRepository.ExecuteReader(query, _connectionString);
+                return reader.HasRows;
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
     }
 }

@@ -26,7 +26,6 @@ namespace StockManagementApplication.UserInterfaces
                 if (nameTextBox.Text == "")
                 {
                     var validationMessage = "Please give category name";
-                    RefreshFiled();
                     MessageBox.Show(validationMessage);
                     return;
                 }
@@ -34,10 +33,18 @@ namespace StockManagementApplication.UserInterfaces
                 category.Name = nameTextBox.Text;
                 category.CreateBy = "Admin";
                 category.CreateDate = DateTime.Now;
+                var isExist = _categoryManager.IsNameExist(category);
+                if (isExist)
+                {
+                    var validationMessage = "Name already exist. Please give another name";
+                    MessageBox.Show(validationMessage);
+                    return;
+                }
                 var isSave = _categoryManager.Save(category);
                 if (isSave)
                 {
                     var successMessage = "Category info Save Successfully";
+                    RefreshFiled();
                     MessageBox.Show(successMessage);
                     return;
                 }
