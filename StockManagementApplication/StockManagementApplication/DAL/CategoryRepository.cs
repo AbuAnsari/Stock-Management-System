@@ -1,5 +1,7 @@
 ﻿using StockManagementApplication.Models;
 using System;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace StockManagementApplication.DAL
 {
@@ -29,6 +31,22 @@ namespace StockManagementApplication.DAL
                 var query = "SELECT * FROM Categories WHERE Name='" + category.Name + "'";
                 var reader = _genericRepository.ExecuteReader(query, _connectionString);
                 return reader.HasRows;
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+
+        public DataTable GetAll()
+        {
+            try
+            {
+                var query = "SELECT Id, Name FROM Categories";
+                SqlDataAdapter dataAdapter = _genericRepository.ExecuteAdapter(query, _connectionString);
+                DataTable dataTable = new DataTable();
+                dataAdapter.Fill(dataTable);
+                return dataTable;
             }
             catch (Exception e)
             {

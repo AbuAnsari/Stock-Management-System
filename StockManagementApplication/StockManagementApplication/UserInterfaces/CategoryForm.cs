@@ -17,6 +17,7 @@ namespace StockManagementApplication.UserInterfaces
         {
             SaveButton.Visible = true;
             UpdateButton.Visible = false;
+            GetAllCategory();
         }
 
         private void SaveButton_Click(object sender, EventArgs e)
@@ -55,6 +56,12 @@ namespace StockManagementApplication.UserInterfaces
             {
                 throw new Exception(exception.Message);
             }
+        }
+
+        public void GetAllCategory()
+        {
+            var categoryList = _categoryManager.GetAll();
+            CategoryDataGridView.DataSource = categoryList;
         }
 
         public void RefreshFiled()
