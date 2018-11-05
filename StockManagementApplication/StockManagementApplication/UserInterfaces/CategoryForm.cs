@@ -49,7 +49,7 @@ namespace StockManagementApplication.UserInterfaces
                     MessageBox.Show(successMessage);
                     return;
                 }
-                var failMessage = "Category info Save Successfully";
+                var failMessage = "Category info Save Fail";
                 MessageBox.Show(failMessage);
             }
             catch (Exception exception)
@@ -110,7 +110,7 @@ namespace StockManagementApplication.UserInterfaces
                     MessageBox.Show(successMessage);
                     return;
                 }
-                var failMessage = "Category info Update Successfully";
+                var failMessage = "Category info Update Fail";
                 MessageBox.Show(failMessage);
             }
             catch (Exception exception)
