@@ -12,7 +12,6 @@ namespace StockManagementApplication.UserInterfaces
         {
             InitializeComponent();
         }
-
         private void SaveButton_Click(object sender, EventArgs e)
         {
             try
@@ -28,6 +27,13 @@ namespace StockManagementApplication.UserInterfaces
                 company.Name = nameTextBox.Text;
                 company.CreateBy = "Admin";
                 company.CreateDate = DateTime.Now;
+                var isExist = _companyManager.IsNameExist(company);
+                if (isExist)
+                {
+                    string validationMessage = "Name already Exist...Please give another name";
+                    MessageBox.Show(validationMessage);
+                    return;
+                }
 
                 var isSave = _companyManager.Save(company);
                 if (isSave)
@@ -45,7 +51,6 @@ namespace StockManagementApplication.UserInterfaces
                 throw new Exception(exception.Message);
             }
         }
-
 
     }
 }
