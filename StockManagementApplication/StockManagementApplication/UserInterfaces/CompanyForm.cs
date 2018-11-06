@@ -12,6 +12,10 @@ namespace StockManagementApplication.UserInterfaces
         {
             InitializeComponent();
         }
+        private void CompanyForm_Load(object sender, EventArgs e)
+        {
+            GetAllCompany();
+        }
         private void SaveButton_Click(object sender, EventArgs e)
         {
             try
@@ -30,6 +34,7 @@ namespace StockManagementApplication.UserInterfaces
                 var isExist = _companyManager.IsNameExist(company);
                 if (isExist)
                 {
+                    GetAllCompany();
                     string validationMessage = "Name already Exist...Please give another name";
                     MessageBox.Show(validationMessage);
                     return;
@@ -51,6 +56,21 @@ namespace StockManagementApplication.UserInterfaces
                 throw new Exception(exception.Message);
             }
         }
+
+        public void GetAllCompany()
+        {
+            try
+            {
+                var companies = _companyManager.GetAll();
+                CompanyDataGridView.DataSource = companies;
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+
+
 
     }
 }
