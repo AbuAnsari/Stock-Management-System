@@ -1,5 +1,6 @@
 ﻿using StockManagementApplication.Models;
 using System;
+using System.Data;
 
 namespace StockManagementApplication.DAL
 {
@@ -36,5 +37,22 @@ namespace StockManagementApplication.DAL
                 throw new Exception(e.Message);
             }
         }
+
+        public DataTable GetAllItemByCategoryId(Item item)
+        {
+            try
+            {
+                var query = "SELECT * FROM Items WHERE CategoryId= " + item.CategoryId + "";
+                var dataAdapter = _genericRepository.ExecuteAdapter(query, _connectionString);
+                var dataTable = new DataTable();
+                dataAdapter.Fill(dataTable);
+                return dataTable;
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+
     }
 }

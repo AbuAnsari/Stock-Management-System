@@ -50,6 +50,7 @@
             this.companyComboBox.Name = "companyComboBox";
             this.companyComboBox.Size = new System.Drawing.Size(181, 21);
             this.companyComboBox.TabIndex = 2;
+            this.companyComboBox.SelectedIndexChanged += new System.EventHandler(this.companyComboBox_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -171,6 +172,7 @@
             this.Controls.Add(this.label1);
             this.Name = "StockInForm";
             this.Text = "Stock In Form";
+            this.Load += new System.EventHandler(this.StockInForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

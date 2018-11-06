@@ -25,5 +25,7 @@ namespace StockManagementApplication.DAL
                 throw new Exception(e.Message);
             }
         }
+
+
     }
 }

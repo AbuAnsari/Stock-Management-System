@@ -1,5 +1,6 @@
 ﻿using StockManagementApplication.DAL;
 using StockManagementApplication.Models;
+using System.Data;
 
 namespace StockManagementApplication.BLL
 {
@@ -17,6 +18,12 @@ namespace StockManagementApplication.BLL
         {
             var reader = _itemRepository.IsNameExist(item);
             return reader;
+        }
+
+        public DataTable GetAllItemByCategoryId(Item item)
+        {
+            var dataTable = _itemRepository.GetAllItemByCategoryId(item);
+            return dataTable;
         }
     }
 }
