@@ -14,7 +14,7 @@ namespace StockManagementApplication
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new CompanyForm());
+            Application.Run(new ItemForm());
         }
     }
 }
