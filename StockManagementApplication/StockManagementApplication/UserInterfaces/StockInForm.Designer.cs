@@ -95,6 +95,7 @@
             this.itemComboBox.Name = "itemComboBox";
             this.itemComboBox.Size = new System.Drawing.Size(181, 21);
             this.itemComboBox.TabIndex = 3;
+            this.itemComboBox.SelectionChangeCommitted += new System.EventHandler(this.itemComboBox_SelectionChangeCommitted);
             // 
             // label4
             // 

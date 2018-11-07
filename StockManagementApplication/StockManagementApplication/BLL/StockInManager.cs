@@ -1,5 +1,6 @@
 ﻿using StockManagementApplication.DAL;
 using StockManagementApplication.Models;
+using System.Data.SqlClient;
 
 namespace StockManagementApplication.BLL
 {
@@ -11,6 +12,12 @@ namespace StockManagementApplication.BLL
         {
             var save = _stockInRepository.Save(stock);
             return save;
+        }
+
+        public SqlDataReader GetAvaialableQtyByItemId(StockIn stock)
+        {
+            var reader = _stockInRepository.GetAvaialableQtyByItemId(stock);
+            return reader;
         }
     }
 }

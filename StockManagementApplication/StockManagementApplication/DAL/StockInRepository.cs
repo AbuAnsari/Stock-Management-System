@@ -1,6 +1,7 @@
 ﻿
 using StockManagementApplication.Models;
 using System;
+using System.Data.SqlClient;
 
 namespace StockManagementApplication.DAL
 {
@@ -26,6 +27,18 @@ namespace StockManagementApplication.DAL
             }
         }
 
-
+        public SqlDataReader GetAvaialableQtyByItemId(StockIn stock)
+        {
+            try
+            {
+                var query = "SELECT SUM(s.InQuantity) AS InQuantity FROM Stocks s WHERE s.ItemId= " + stock.ItemId + "";
+                var reader = _genericRepository.ExecuteReader(query, _connectionString);
+                return reader;
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
     }
 }

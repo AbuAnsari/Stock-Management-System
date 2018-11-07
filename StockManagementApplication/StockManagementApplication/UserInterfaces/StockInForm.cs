@@ -14,7 +14,6 @@ namespace StockManagementApplication.UserInterfaces
         }
 
         private readonly CategoryManager _categoryManager = new CategoryManager();
-        private readonly CompanyManager _companyManager = new CompanyManager();
         private readonly ItemManager _itemManager = new ItemManager();
         private readonly StockInManager _stockInManager = new StockInManager();
         public void LoadCategory()
@@ -61,6 +60,44 @@ namespace StockManagementApplication.UserInterfaces
                 itemComboBox.ValueMember = "Id";
                 itemComboBox.SelectedIndex = -1;
             }
+        }
+        private void itemComboBox_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+
+            if (itemComboBox.SelectedValue != null)
+            {
+                var item = new Item();
+                item.Id = Convert.ToInt32(itemComboBox.SelectedValue);
+                var reader = _itemManager.GetReorderLevel(item);
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        reorderLevelTextBox.Text = reader["ReorderLevel"].ToString();
+                    }
+
+                }
+                StockIn stock = new StockIn();
+                stock.ItemId = Convert.ToInt32(itemComboBox.SelectedValue);
+                var reader1 = _stockInManager.GetAvaialableQtyByItemId(stock);
+                if (reader1.HasRows)
+                {
+                    while (reader1.Read())
+                    {
+                        var avialableQty = reader1["InQuantity"].ToString();
+                        if (String.IsNullOrEmpty(avialableQty))
+                        {
+                            avialableQuantityTextBox.Text = 0.ToString();
+                            return;
+                        }
+
+                        avialableQuantityTextBox.Text = avialableQty;
+                    }
+                }
+                return;
+            }
+            reorderLevelTextBox.Text = 0.ToString();
+
         }
     }
 }
