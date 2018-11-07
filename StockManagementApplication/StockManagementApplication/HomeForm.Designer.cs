@@ -37,6 +37,7 @@
             this.stockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.stockOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.itemSummaryReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -95,22 +96,31 @@
             // stockToolStripMenuItem
             // 
             this.stockToolStripMenuItem.Name = "stockToolStripMenuItem";
-            this.stockToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.stockToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.stockToolStripMenuItem.Text = "StockIn";
             this.stockToolStripMenuItem.Click += new System.EventHandler(this.stockToolStripMenuItem_Click);
             // 
             // stockOutToolStripMenuItem
             // 
             this.stockOutToolStripMenuItem.Name = "stockOutToolStripMenuItem";
-            this.stockOutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.stockOutToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.stockOutToolStripMenuItem.Text = "Stock Out";
             this.stockOutToolStripMenuItem.Click += new System.EventHandler(this.stockOutToolStripMenuItem_Click);
             // 
             // reportsToolStripMenuItem
             // 
+            this.reportsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.itemSummaryReportToolStripMenuItem});
             this.reportsToolStripMenuItem.Name = "reportsToolStripMenuItem";
             this.reportsToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
             this.reportsToolStripMenuItem.Text = "Reports";
+            // 
+            // itemSummaryReportToolStripMenuItem
+            // 
+            this.itemSummaryReportToolStripMenuItem.Name = "itemSummaryReportToolStripMenuItem";
+            this.itemSummaryReportToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
+            this.itemSummaryReportToolStripMenuItem.Text = "Item Summary Report";
+            this.itemSummaryReportToolStripMenuItem.Click += new System.EventHandler(this.itemSummaryReportToolStripMenuItem_Click);
             // 
             // HomeForm
             // 
@@ -139,6 +149,7 @@
         private System.Windows.Forms.ToolStripMenuItem stockOutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reportsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem itemSetupToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem itemSummaryReportToolStripMenuItem;
     }
 }
 

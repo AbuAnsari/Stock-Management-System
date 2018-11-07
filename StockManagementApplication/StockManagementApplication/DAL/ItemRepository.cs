@@ -82,5 +82,26 @@ namespace StockManagementApplication.DAL
                 throw new Exception(e.Message);
             }
         }
+
+        public DataTable GetItemReport(Item item)
+        {
+            try
+            {
+                var query = "SELECT i.Name AS ItemName, co.Name AS CompanyName, c.Name AS CategoryName, i.ReorderLevel, ISNULL(ISNULL(SUM(s.InQuantity),0)-ISNULL(SUM(s.OutQuantity),0),0) AS AvailableQty FROM Items i " +
+                            "LEFT JOIN Categories c ON c.Id= i.CategoryId " +
+                            "LEFT JOIN Companies co ON co.Id= i.CompanyId " +
+                            "LEFT JOIN Stocks s ON i.Id= s.ItemId " +
+                            "WHERE i.CategoryId=" + item.CategoryId + " OR i.CompanyId=" + item.CompanyId + " " +
+                            "GROUP BY i.Name,c.Name, co.Name, i.ReorderLevel";
+                var dataAdapter = _genericRepository.ExecuteAdapter(query, _connectionString);
+                var dataTable = new DataTable();
+                dataAdapter.Fill(dataTable);
+                return dataTable;
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
     }
 }

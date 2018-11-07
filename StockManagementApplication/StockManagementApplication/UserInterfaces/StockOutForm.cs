@@ -290,11 +290,11 @@ namespace StockManagementApplication.UserInterfaces
                     foreach (var stockOut in _stockOuts)
                     {
                         stockOut.StockOutType = StockOutType.Sell;
-                        stockOut.OutDate= DateTime.Now;
+                        stockOut.OutDate = DateTime.Now;
                         stockOut.CreateBy = "Admin";
-                        stockOut.CreateDate= DateTime.Now;
+                        stockOut.CreateDate = DateTime.Now;
                     }
-                    
+
                     var isSave = _stockOutManager.Save(_stockOuts);
                     if (isSave)
                     {
