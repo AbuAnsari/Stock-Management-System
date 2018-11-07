@@ -1,6 +1,7 @@
 ﻿using StockManagementApplication.DAL;
 using StockManagementApplication.Models;
 using System.Data;
+using System.Data.SqlClient;
 
 namespace StockManagementApplication.BLL
 {
@@ -20,10 +21,22 @@ namespace StockManagementApplication.BLL
             return reader;
         }
 
-        public DataTable GetAllItemByCategoryId(Item item)
+        public DataTable GetAllCompanyByCategoryId(Item item)
         {
-            var dataTable = _itemRepository.GetAllItemByCategoryId(item);
+            var dataTable = _itemRepository.GetAllCompanyByCategoryId(item);
             return dataTable;
+        }
+
+        public DataTable GetAllItemByCompanyId(Item item)
+        {
+            var dataTable = _itemRepository.GetAllItemByCompanyId(item);
+            return dataTable;
+        }
+
+        public SqlDataReader GetReorderLevel(Item item)
+        {
+            var reorderLevel = _itemRepository.GetReorderLevel(item);
+            return reorderLevel;
         }
     }
 }

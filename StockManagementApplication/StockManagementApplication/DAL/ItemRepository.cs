@@ -1,6 +1,7 @@
 ﻿using StockManagementApplication.Models;
 using System;
 using System.Data;
+using System.Data.SqlClient;
 
 namespace StockManagementApplication.DAL
 {
@@ -38,11 +39,11 @@ namespace StockManagementApplication.DAL
             }
         }
 
-        public DataTable GetAllItemByCategoryId(Item item)
+        public DataTable GetAllCompanyByCategoryId(Item item)
         {
             try
             {
-                var query = "SELECT * FROM Items WHERE CategoryId= " + item.CategoryId + "";
+                var query = "SELECT DISTINCT c.Id, c.Name FROM Items i INNER JOIN Companies c On c.Id= i.CompanyId WHERE CategoryId=" + item.CategoryId + "";
                 var dataAdapter = _genericRepository.ExecuteAdapter(query, _connectionString);
                 var dataTable = new DataTable();
                 dataAdapter.Fill(dataTable);
@@ -53,6 +54,35 @@ namespace StockManagementApplication.DAL
                 throw new Exception(e.Message);
             }
         }
+        public DataTable GetAllItemByCompanyId(Item item)
+        {
+            try
+            {
+                var query = "SELECT Id, Name FROM Items WHERE CompanyId= " + item.CompanyId + "";
+                var dataAdapter = _genericRepository.ExecuteAdapter(query, _connectionString);
+                var dataTable = new DataTable();
+                dataAdapter.Fill(dataTable);
+                return dataTable;
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+        public SqlDataReader GetReorderLevel(Item item)
+        {
+            try
+            {
+                var query = "SELECT ReorderLevel FROM Items WHERE Id= " + item.Id + "";
+                var reader = _genericRepository.ExecuteReader(query, _connectionString);
+                return reader;
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+
 
     }
 }
