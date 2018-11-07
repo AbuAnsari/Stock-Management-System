@@ -94,5 +94,19 @@ namespace StockManagementApplication
                 _itemReport.Activate();
             }
         }
+
+        private SellsReportForm _sellsReport;
+        private void sellsReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (_sellsReport == null)
+            {
+                _sellsReport = new SellsReportForm();
+                _sellsReport.Show();
+            }
+            else
+            {
+                _sellsReport.Activate();
+            }
+        }
     }
 }

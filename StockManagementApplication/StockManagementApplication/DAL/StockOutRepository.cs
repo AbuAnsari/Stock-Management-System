@@ -2,6 +2,7 @@
 using StockManagementApplication.Models;
 using System;
 using System.Collections.Generic;
+using System.Data;
 
 namespace StockManagementApplication.DAL
 {
@@ -25,6 +26,23 @@ namespace StockManagementApplication.DAL
                 }
 
                 return rowAffected > 0;
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+
+        public DataTable GetAllSellItem(DateTime fromDate, DateTime toDate)
+        {
+            try
+            {
+                var query = "SELECT i.Name, s.OutQuantity FROM Stocks s LEFT JOIN Items i ON i.Id= s.ItemId WHERE s.OutType= 1 " +
+                            "AND s.ReceiveDate BETWEEN '" + fromDate + "' AND '" + toDate + "'";
+                var dataAdapter = _genericRepository.ExecuteAdapter(query, _connectionString);
+                var dataTable = new DataTable();
+                dataAdapter.Fill(dataTable);
+                return dataTable;
             }
             catch (Exception e)
             {

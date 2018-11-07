@@ -12,7 +12,7 @@ namespace StockManagementApplication.Models
         public int ItemId { get; set; }
         public Item Item { get; set; }
         public int Quantity { get; set; }
-        public string StockOutType { get; set; }
+        public int StockOutType { get; set; }
         public DateTime OutDate { get; set; }
         public string CreateBy { get; set; }
         public DateTime CreateDate { get; set; }

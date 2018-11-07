@@ -92,6 +92,12 @@
     <Compile Include="UserInterfaces\ItemReportForm.Designer.cs">
       <DependentUpon>ItemReportForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserInterfaces\SellsReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserInterfaces\SellsReportForm.Designer.cs">
+      <DependentUpon>SellsReportForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserInterfaces\StockInForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -105,6 +111,7 @@
       <DependentUpon>StockOutForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\ItemReportViewModel.cs" />
+    <Compile Include="ViewModels\SellItemViewModel.cs" />
     <Compile Include="ViewModels\StockOutType.cs" />
     <Compile Include="ViewModels\StockOutViewModel.cs" />
     <EmbeddedResource Include="HomeForm.resx">
@@ -131,6 +138,9 @@
     <EmbeddedResource Include="UserInterfaces\ItemReportForm.resx">
       <DependentUpon>ItemReportForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserInterfaces\SellsReportForm.resx">
+      <DependentUpon>SellsReportForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserInterfaces\StockInForm.resx">
       <DependentUpon>StockInForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -142,6 +152,7 @@
     <None Include="Properties\DataSources\StockManagementApplication.Models.Item.datasource" />
     <None Include="Properties\DataSources\StockManagementApplication.ViewModels.ItemReportViewModel.datasource" />
     <None Include="Properties\DataSources\StockManagementApplication.ViewModels.ProductViewModel.datasource" />
+    <None Include="Properties\DataSources\StockManagementApplication.ViewModels.SellItemViewModel.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

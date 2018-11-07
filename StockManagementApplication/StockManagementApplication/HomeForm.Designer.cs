@@ -38,6 +38,7 @@
             this.stockOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.itemSummaryReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sellsReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -110,7 +111,8 @@
             // reportsToolStripMenuItem
             // 
             this.reportsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.itemSummaryReportToolStripMenuItem});
+            this.itemSummaryReportToolStripMenuItem,
+            this.sellsReportToolStripMenuItem});
             this.reportsToolStripMenuItem.Name = "reportsToolStripMenuItem";
             this.reportsToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
             this.reportsToolStripMenuItem.Text = "Reports";
@@ -121,6 +123,13 @@
             this.itemSummaryReportToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
             this.itemSummaryReportToolStripMenuItem.Text = "Item Summary Report";
             this.itemSummaryReportToolStripMenuItem.Click += new System.EventHandler(this.itemSummaryReportToolStripMenuItem_Click);
+            // 
+            // sellsReportToolStripMenuItem
+            // 
+            this.sellsReportToolStripMenuItem.Name = "sellsReportToolStripMenuItem";
+            this.sellsReportToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
+            this.sellsReportToolStripMenuItem.Text = "Sells Report";
+            this.sellsReportToolStripMenuItem.Click += new System.EventHandler(this.sellsReportToolStripMenuItem_Click);
             // 
             // HomeForm
             // 
@@ -150,6 +159,7 @@
         private System.Windows.Forms.ToolStripMenuItem reportsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem itemSetupToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem itemSummaryReportToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sellsReportToolStripMenuItem;
     }
 }
 

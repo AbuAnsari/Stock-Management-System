@@ -3,8 +3,8 @@ namespace StockManagementApplication.ViewModels
 {
     public static class StockOutType
     {
-        public const string Sell = "Sell";
-        public const string Damage = "Damage";
-        public const string Lost = "Lost";
+        public const int Sell = 1;
+        public const int Damage = 2;
+        public const int Lost = 3;
     }
 }
