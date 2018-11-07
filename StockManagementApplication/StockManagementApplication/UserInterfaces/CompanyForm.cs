@@ -34,7 +34,6 @@ namespace StockManagementApplication.UserInterfaces
                 var isExist = _companyManager.IsNameExist(company);
                 if (isExist)
                 {
-                    GetAllCompany();
                     string validationMessage = "Name already Exist...Please give another name";
                     MessageBox.Show(validationMessage);
                     return;
@@ -43,6 +42,7 @@ namespace StockManagementApplication.UserInterfaces
                 var isSave = _companyManager.Save(company);
                 if (isSave)
                 {
+                    GetAllCompany();
                     var successMessage = "Company info Save Successfully";
                     nameTextBox.Text = "";
                     MessageBox.Show(successMessage);

@@ -110,6 +110,7 @@
             // 
             this.reorderLevelTextBox.Location = new System.Drawing.Point(150, 142);
             this.reorderLevelTextBox.Name = "reorderLevelTextBox";
+            this.reorderLevelTextBox.ReadOnly = true;
             this.reorderLevelTextBox.Size = new System.Drawing.Size(181, 20);
             this.reorderLevelTextBox.TabIndex = 7;
             // 
@@ -126,6 +127,7 @@
             // 
             this.avialableQuantityTextBox.Location = new System.Drawing.Point(150, 177);
             this.avialableQuantityTextBox.Name = "avialableQuantityTextBox";
+            this.avialableQuantityTextBox.ReadOnly = true;
             this.avialableQuantityTextBox.Size = new System.Drawing.Size(181, 20);
             this.avialableQuantityTextBox.TabIndex = 7;
             // 
@@ -153,6 +155,7 @@
             this.SaveButton.TabIndex = 5;
             this.SaveButton.Text = "Save";
             this.SaveButton.UseVisualStyleBackColor = true;
+            this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
             // 
             // StockInForm
             // 

@@ -36,6 +36,8 @@ namespace StockManagementApplication.UserInterfaces
         {
             companyComboBox.DataSource = null;
             itemComboBox.DataSource = null;
+            reorderLevelTextBox.Text = "";
+            avialableQuantityTextBox.Text = "";
             if (categoryComboBox.SelectedValue != null)
             {
                 var item = new Item();
@@ -50,6 +52,8 @@ namespace StockManagementApplication.UserInterfaces
         private void companyComboBox_SelectionChangeCommitted(object sender, EventArgs e)
         {
             itemComboBox.DataSource = null;
+            reorderLevelTextBox.Text = "";
+            avialableQuantityTextBox.Text = "";
             if (companyComboBox.SelectedValue != null)
             {
                 Item item = new Item();
@@ -98,6 +102,41 @@ namespace StockManagementApplication.UserInterfaces
             }
             reorderLevelTextBox.Text = 0.ToString();
 
+        }
+
+        private void SaveButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (categoryComboBox.SelectedValue == null || companyComboBox.SelectedValue == null || itemComboBox.SelectedValue == null || quantityTextBox.Text == "")
+                {
+                    string validationMessage = "Please Fillup Required Field";
+                    MessageBox.Show(validationMessage);
+                    return;
+                }
+
+                var stock = new StockIn();
+                stock.CategoryId = Convert.ToInt32(categoryComboBox.SelectedValue);
+                stock.CompanyId = Convert.ToInt32(companyComboBox.SelectedValue);
+                stock.ItemId = Convert.ToInt32(itemComboBox.SelectedValue);
+                stock.Quantity = Convert.ToInt32(quantityTextBox.Text);
+                stock.ReceiveDate = DateTime.Now;
+                stock.CreateBy = "Admin";
+                stock.CreateDate = DateTime.Now;
+                var isSave = _stockInManager.Save(stock);
+                if (isSave)
+                {
+                    string successMessage = "Info Save Successfuuly";
+                    MessageBox.Show(successMessage);
+                    return;
+                }
+                string failMessage = "Info Save Fail";
+                MessageBox.Show(failMessage);
+            }
+            catch (Exception exception)
+            {
+                throw new Exception(exception.Message);
+            }
         }
     }
 }
