@@ -259,6 +259,7 @@
             this.SellButton.TabIndex = 6;
             this.SellButton.Text = "Sell";
             this.SellButton.UseVisualStyleBackColor = true;
+            this.SellButton.Click += new System.EventHandler(this.SellButton_Click);
             // 
             // StockOutForm
             // 

@@ -48,6 +48,7 @@
     <Compile Include="BLL\CompanyManager.cs" />
     <Compile Include="BLL\ItemManager.cs" />
     <Compile Include="BLL\StockInManager.cs" />
+    <Compile Include="BLL\StockOutManager.cs" />
     <Compile Include="DAL\CategoryRepository.cs" />
     <Compile Include="DAL\CompanyRepository.cs" />
     <Compile Include="DAL\GenericRepository.cs" />
@@ -97,6 +98,7 @@
     <Compile Include="UserInterfaces\StockOutForm.Designer.cs">
       <DependentUpon>StockOutForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\StockOutType.cs" />
     <Compile Include="ViewModels\StockOutViewModel.cs" />
     <EmbeddedResource Include="HomeForm.resx">
       <DependentUpon>HomeForm.cs</DependentUpon>

@@ -12,6 +12,7 @@ namespace StockManagementApplication.UserInterfaces
         private readonly CategoryManager _categoryManager = new CategoryManager();
         private readonly ItemManager _itemManager = new ItemManager();
         private readonly StockInManager _stockInManager = new StockInManager();
+        private readonly StockOutManager _stockOutManager = new StockOutManager();
         public StockOutForm()
         {
             InitializeComponent();
@@ -115,9 +116,9 @@ namespace StockManagementApplication.UserInterfaces
                         }
                     }
 
-                    foreach (var stockOut in stockOuts)
+                    foreach (var stockOut in _stockOuts)
                     {
-                        if (stock.Item == stockOut.Item)
+                        if (stock.ItemId == stockOut.ItemId)
                         {
                             avialableQty -= stockOut.Quantity;
                         }
@@ -134,8 +135,8 @@ namespace StockManagementApplication.UserInterfaces
             }
         }
 
-        private List<StockOut> stockOuts = new List<StockOut>();
-        private List<StockOutViewModel> productVm = new List<StockOutViewModel>();
+        private readonly List<StockOut> _stockOuts = new List<StockOut>();
+        private readonly List<StockOutViewModel> _productViewModels = new List<StockOutViewModel>();
         private int _serial = 1;
         private void AddButton_Click(object sender, EventArgs e)
         {
@@ -162,12 +163,19 @@ namespace StockManagementApplication.UserInterfaces
                 {
                     string message = "Quantity is not Available";
                     MessageBox.Show(message);
+                }
+
+                var isReorder = ReorderLevel(stock);
+                if (isReorder)
+                {
+                    string message = "Please Reorder this Item";
+                    MessageBox.Show(message);
                     return;
                 }
                 var isExist = IsExist(stock);
                 if (!isExist)
                 {
-                    stockOuts.Add(stock);
+                    _stockOuts.Add(stock);
                 }
 
                 var product = new StockOutViewModel()
@@ -184,7 +192,7 @@ namespace StockManagementApplication.UserInterfaces
                 var isItemExist = IsItemExist(product);
                 if (!isItemExist)
                 {
-                    productVm.Add(product);
+                    _productViewModels.Add(product);
                 }
 
                 RefreshField();
@@ -196,12 +204,11 @@ namespace StockManagementApplication.UserInterfaces
                 throw new Exception(exception.Message);
             }
         }
-
         public bool IsExist(StockOut stockOut)
         {
             try
             {
-                foreach (var stock in stockOuts)
+                foreach (var stock in _stockOuts)
                 {
                     if (stockOut.ItemId == stock.ItemId)
                     {
@@ -217,12 +224,11 @@ namespace StockManagementApplication.UserInterfaces
                 throw new Exception(e.Message);
             }
         }
-
         public bool IsItemExist(StockOutViewModel viewModel)
         {
             try
             {
-                foreach (var model in productVm)
+                foreach (var model in _productViewModels)
                 {
                     if (viewModel.Name == model.Name)
                     {
@@ -238,13 +244,12 @@ namespace StockManagementApplication.UserInterfaces
                 throw new Exception(e.Message);
             }
         }
-
         public void GetAllInList()
         {
             try
             {
                 ProductListDataGridView.DataSource = null;
-                ProductListDataGridView.DataSource = productVm;
+                ProductListDataGridView.DataSource = _productViewModels;
                 ProductListDataGridView.AutoGenerateColumns = false;
             }
             catch (Exception e)
@@ -252,30 +257,58 @@ namespace StockManagementApplication.UserInterfaces
                 throw new Exception(e.Message);
             }
         }
-
         public void RefreshField()
         {
             itemComboBox.Text = reorderLevelTextBox.Text = avialableQuantityTextBox.Text = quantityTextBox.Text = "";
         }
-
-        public int AvialableQty(StockOut stockOut)
+        public bool ReorderLevel(StockOut stockOut)
         {
             try
             {
-                foreach (var model in stockOuts)
+                var reorderLevel = Convert.ToInt32(reorderLevelTextBox.Text);
+
+                if (stockOut.Quantity < reorderLevel)
                 {
-                    if (stockOut.ItemId == model.ItemId)
-                    {
-                        model.Quantity -= stockOut.Quantity;
-                        return model.Quantity;
-                    }
+                    return true;
                 }
 
-                return 0;
+                return false;
+
             }
             catch (Exception e)
             {
                 throw new Exception(e.Message);
+            }
+        }
+
+        private void SellButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (_stockOuts != null)
+                {
+                    foreach (var stockOut in _stockOuts)
+                    {
+                        stockOut.StockOutType = StockOutType.Sell;
+                        stockOut.OutDate= DateTime.Now;
+                        stockOut.CreateBy = "Admin";
+                        stockOut.CreateDate= DateTime.Now;
+                    }
+                    
+                    var isSave = _stockOutManager.Save(_stockOuts);
+                    if (isSave)
+                    {
+                        string successMessage = "Info Save Successfully";
+                        MessageBox.Show(successMessage);
+                        return;
+                    }
+                    string failMessage = "Info Save Fail";
+                    MessageBox.Show(failMessage);
+                }
+            }
+            catch (Exception exception)
+            {
+                throw new Exception(exception.Message);
             }
         }
     }
