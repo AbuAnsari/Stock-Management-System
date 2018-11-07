@@ -101,20 +101,27 @@ namespace StockManagementApplication.UserInterfaces
                     StockIn stock = new StockIn();
                     stock.ItemId = Convert.ToInt32(itemComboBox.SelectedValue);
                     var reader1 = _stockInManager.GetAvaialableQtyByItemId(stock);
+                    int avialableQty = 0;
                     if (reader1.HasRows)
                     {
                         while (reader1.Read())
                         {
-                            var avialableQty = reader1["InQuantity"].ToString();
-                            if (String.IsNullOrEmpty(avialableQty))
+                            avialableQty = Convert.ToInt32(reader1["AvialableQty"]);
+                            if (avialableQty == 0)
                             {
                                 avialableQuantityTextBox.Text = 0.ToString();
                                 return;
                             }
 
-                            avialableQuantityTextBox.Text = avialableQty;
+                            //avialableQuantityTextBox.Text = avialableQty.ToString();
                         }
                     }
+
+                    foreach (var stockOut in stockOuts)
+                    {
+                        avialableQty -= stockOut.Quantity;
+                    }
+                    avialableQuantityTextBox.Text = avialableQty.ToString();
                     return;
                 }
                 reorderLevelTextBox.Text = 0.ToString();
@@ -146,7 +153,11 @@ namespace StockManagementApplication.UserInterfaces
                     ItemId = Convert.ToInt32(itemComboBox.SelectedValue),
                     Quantity = Convert.ToInt32(quantityTextBox.Text)
                 };
-                stockOuts.Add(stock);
+                var isExist = IsExist(stock);
+                if (!isExist)
+                {
+                    stockOuts.Add(stock);
+                }
 
                 serial++;
                 var product = new StockOutViewModel()
@@ -158,12 +169,59 @@ namespace StockManagementApplication.UserInterfaces
                     Quantity = stock.Quantity,
                     SerialNo = serial
                 };
-                productVm.Add(product);
+                var isItemExist = IsItemExist(product);
+                if (!isItemExist)
+                {
+                    productVm.Add(product);
+                }
+
                 GetAllInList();
             }
             catch (Exception exception)
             {
                 throw new Exception(exception.Message);
+            }
+        }
+
+        public bool IsExist(StockOut stockOut)
+        {
+            try
+            {
+                foreach (var stock in stockOuts)
+                {
+                    if (stockOut.ItemId == stock.ItemId)
+                    {
+                        stock.Quantity += stockOut.Quantity;
+                        return true;
+                    }
+                }
+
+                return false;
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+
+        public bool IsItemExist(StockOutViewModel viewModel)
+        {
+            try
+            {
+                foreach (var model in productVm)
+                {
+                    if (viewModel.Name == model.Name)
+                    {
+                        model.Quantity += viewModel.Quantity;
+                        return true;
+                    }
+                }
+
+                return false;
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
             }
         }
 

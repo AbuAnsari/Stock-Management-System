@@ -103,7 +103,7 @@ namespace StockManagementApplication.UserInterfaces
                     {
                         while (reader1.Read())
                         {
-                            var avialableQty = reader1["InQuantity"].ToString();
+                            var avialableQty = reader1["AvialableQty"].ToString();
                             if (String.IsNullOrEmpty(avialableQty))
                             {
                                 avialableQuantityTextBox.Text = 0.ToString();

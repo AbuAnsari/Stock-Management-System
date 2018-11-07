@@ -31,7 +31,7 @@ namespace StockManagementApplication.DAL
         {
             try
             {
-                var query = "SELECT SUM(s.InQuantity) AS InQuantity FROM Stocks s WHERE s.ItemId= " + stock.ItemId + "";
+                var query = "SELECT (ISNULL(SUM(s.InQuantity),0)-ISNULL(SUM(s.OutQuantity),0)) AS AvialableQty FROM Stocks s WHERE s.ItemId= " + stock.ItemId + "";
                 var reader = _genericRepository.ExecuteReader(query, _connectionString);
                 return reader;
             }
