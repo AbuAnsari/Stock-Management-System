@@ -32,11 +32,11 @@
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.categorySetupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.companySetupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.itemSetupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.inventoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.stockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.stockOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.itemSetupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -76,6 +76,13 @@
             this.companySetupToolStripMenuItem.Text = "Company Setup";
             this.companySetupToolStripMenuItem.Click += new System.EventHandler(this.companySetupToolStripMenuItem_Click);
             // 
+            // itemSetupToolStripMenuItem
+            // 
+            this.itemSetupToolStripMenuItem.Name = "itemSetupToolStripMenuItem";
+            this.itemSetupToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
+            this.itemSetupToolStripMenuItem.Text = "Item Setup";
+            this.itemSetupToolStripMenuItem.Click += new System.EventHandler(this.itemSetupToolStripMenuItem_Click);
+            // 
             // inventoryToolStripMenuItem
             // 
             this.inventoryToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -97,19 +104,13 @@
             this.stockOutToolStripMenuItem.Name = "stockOutToolStripMenuItem";
             this.stockOutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.stockOutToolStripMenuItem.Text = "Stock Out";
+            this.stockOutToolStripMenuItem.Click += new System.EventHandler(this.stockOutToolStripMenuItem_Click);
             // 
             // reportsToolStripMenuItem
             // 
             this.reportsToolStripMenuItem.Name = "reportsToolStripMenuItem";
             this.reportsToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
             this.reportsToolStripMenuItem.Text = "Reports";
-            // 
-            // itemSetupToolStripMenuItem
-            // 
-            this.itemSetupToolStripMenuItem.Name = "itemSetupToolStripMenuItem";
-            this.itemSetupToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
-            this.itemSetupToolStripMenuItem.Text = "Item Setup";
-            this.itemSetupToolStripMenuItem.Click += new System.EventHandler(this.itemSetupToolStripMenuItem_Click);
             // 
             // HomeForm
             // 

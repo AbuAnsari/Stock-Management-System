@@ -1,21 +1,23 @@
 ﻿using StockManagementApplication.BLL;
 using StockManagementApplication.Models;
+using StockManagementApplication.ViewModels;
 using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace StockManagementApplication.UserInterfaces
 {
-    public partial class StockInForm : Form
+    public partial class StockOutFormASD : Form
     {
-        public StockInForm()
-        {
-            InitializeComponent();
-            LoadCategory();
-        }
-
         private readonly CategoryManager _categoryManager = new CategoryManager();
         private readonly ItemManager _itemManager = new ItemManager();
         private readonly StockInManager _stockInManager = new StockInManager();
+        public StockOutFormASD()
+        {
+            InitializeComponent();
+            ProductListDataGridView.AutoGenerateColumns = false;
+            LoadCategory();
+        }
         public void LoadCategory()
         {
             try
@@ -122,7 +124,11 @@ namespace StockManagementApplication.UserInterfaces
                 throw new Exception(exception.Message);
             }
         }
-        private void SaveButton_Click(object sender, EventArgs e)
+
+        private List<StockOut> stockOuts = new List<StockOut>();
+        private List<StockOutViewModel> productVm = new List<StockOutViewModel>();
+        private int serial = 0;
+        private void AddButton_Click(object sender, EventArgs e)
         {
             try
             {
@@ -133,27 +139,45 @@ namespace StockManagementApplication.UserInterfaces
                     return;
                 }
 
-                var stock = new StockIn();
-                stock.CategoryId = Convert.ToInt32(categoryComboBox.SelectedValue);
-                stock.CompanyId = Convert.ToInt32(companyComboBox.SelectedValue);
-                stock.ItemId = Convert.ToInt32(itemComboBox.SelectedValue);
-                stock.Quantity = Convert.ToInt32(quantityTextBox.Text);
-                stock.ReceiveDate = DateTime.Now;
-                stock.CreateBy = "Admin";
-                stock.CreateDate = DateTime.Now;
-                var isSave = _stockInManager.Save(stock);
-                if (isSave)
+                var stock = new StockOut
                 {
-                    string successMessage = "Info Save Successfuuly";
-                    MessageBox.Show(successMessage);
-                    return;
-                }
-                string failMessage = "Info Save Fail";
-                MessageBox.Show(failMessage);
+                    CategoryId = Convert.ToInt32(categoryComboBox.SelectedValue),
+                    CompanyId = Convert.ToInt32(companyComboBox.SelectedValue),
+                    ItemId = Convert.ToInt32(itemComboBox.SelectedValue),
+                    Quantity = Convert.ToInt32(quantityTextBox.Text)
+                };
+                stockOuts.Add(stock);
+
+                serial++;
+                var product = new StockOutViewModel()
+                {
+                    Id = stock.Id,
+                    Category = categoryComboBox.Text,
+                    Company = companyComboBox.Text,
+                    Name = itemComboBox.Text,
+                    Quantity = stock.Quantity,
+                    SerialNo = serial
+                };
+                productVm.Add(product);
+                GetAllInList();
             }
             catch (Exception exception)
             {
                 throw new Exception(exception.Message);
+            }
+        }
+
+        public void GetAllInList()
+        {
+            try
+            {
+                ProductListDataGridView.DataSource = null;
+                ProductListDataGridView.DataSource = productVm;
+                ProductListDataGridView.AutoGenerateColumns = false;
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
             }
         }
     }

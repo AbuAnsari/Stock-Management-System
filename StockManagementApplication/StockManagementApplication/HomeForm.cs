@@ -66,5 +66,19 @@ namespace StockManagementApplication
                 _stockInForm.Activate();
             }
         }
+
+        private StockOutFormASD _stockOutForm;
+        private void stockOutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (_stockOutForm == null)
+            {
+                _stockOutForm = new StockOutFormASD();
+                _stockOutForm.Show();
+            }
+            else
+            {
+                _stockOutForm.Activate();
+            }
+        }
     }
 }
