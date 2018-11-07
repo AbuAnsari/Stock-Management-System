@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using StockManagementApplication.UserInterfaces;
+using System;
 using System.Windows.Forms;
 
 namespace StockManagementApplication
@@ -15,6 +9,62 @@ namespace StockManagementApplication
         public HomeForm()
         {
             InitializeComponent();
+        }
+
+        private CategoryForm _categoryForm;
+        private void categorySetupToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (_categoryForm == null)
+            {
+                _categoryForm = new CategoryForm();
+                _categoryForm.Show();
+            }
+            else
+            {
+                _categoryForm.Activate();
+            }
+        }
+
+        private CompanyForm _companyForm;
+        private void companySetupToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (_companyForm == null)
+            {
+                _companyForm = new CompanyForm();
+                _companyForm.Show();
+            }
+            else
+            {
+                _companyForm.Activate();
+            }
+        }
+
+        private ItemForm _itemForm;
+        private void itemSetupToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (_itemForm == null)
+            {
+                _itemForm = new ItemForm();
+                _itemForm.Show();
+            }
+            else
+            {
+                _itemForm.Activate();
+            }
+        }
+
+        private StockInForm _stockInForm;
+        private void stockToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (_stockInForm == null)
+            {
+                _stockInForm = new StockInForm();
+                _stockInForm.Show();
+            }
+            else
+            {
+                _stockInForm.Activate();
+            }
         }
     }
 }

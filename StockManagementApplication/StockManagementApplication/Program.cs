@@ -1,5 +1,4 @@
-﻿using StockManagementApplication.UserInterfaces;
-using System;
+﻿using System;
 using System.Windows.Forms;
 
 namespace StockManagementApplication
@@ -14,7 +13,7 @@ namespace StockManagementApplication
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new StockInForm());
+            Application.Run(new HomeForm());
         }
     }
 }

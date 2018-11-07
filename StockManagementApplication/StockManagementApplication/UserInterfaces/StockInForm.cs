@@ -103,7 +103,6 @@ namespace StockManagementApplication.UserInterfaces
             reorderLevelTextBox.Text = 0.ToString();
 
         }
-
         private void SaveButton_Click(object sender, EventArgs e)
         {
             try
