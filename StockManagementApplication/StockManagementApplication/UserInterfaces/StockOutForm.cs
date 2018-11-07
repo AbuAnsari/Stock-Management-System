@@ -7,12 +7,12 @@ using System.Windows.Forms;
 
 namespace StockManagementApplication.UserInterfaces
 {
-    public partial class StockOutFormASD : Form
+    public partial class StockOutForm : Form
     {
         private readonly CategoryManager _categoryManager = new CategoryManager();
         private readonly ItemManager _itemManager = new ItemManager();
         private readonly StockInManager _stockInManager = new StockInManager();
-        public StockOutFormASD()
+        public StockOutForm()
         {
             InitializeComponent();
             ProductListDataGridView.AutoGenerateColumns = false;
@@ -112,14 +112,16 @@ namespace StockManagementApplication.UserInterfaces
                                 avialableQuantityTextBox.Text = 0.ToString();
                                 return;
                             }
-
-                            //avialableQuantityTextBox.Text = avialableQty.ToString();
                         }
                     }
 
                     foreach (var stockOut in stockOuts)
                     {
-                        avialableQty -= stockOut.Quantity;
+                        if (stock.Item == stockOut.Item)
+                        {
+                            avialableQty -= stockOut.Quantity;
+                        }
+
                     }
                     avialableQuantityTextBox.Text = avialableQty.ToString();
                     return;
@@ -134,12 +136,13 @@ namespace StockManagementApplication.UserInterfaces
 
         private List<StockOut> stockOuts = new List<StockOut>();
         private List<StockOutViewModel> productVm = new List<StockOutViewModel>();
-        private int serial = 0;
+        private int _serial = 1;
         private void AddButton_Click(object sender, EventArgs e)
         {
             try
             {
-                if (categoryComboBox.SelectedValue == null || companyComboBox.SelectedValue == null || itemComboBox.SelectedValue == null || quantityTextBox.Text == "")
+                int qty = Convert.ToInt32(quantityTextBox.Text);
+                if (categoryComboBox.SelectedValue == null || companyComboBox.SelectedValue == null || itemComboBox.SelectedValue == null || qty == 0)
                 {
                     string validationMessage = "Please Fillup Required Field";
                     MessageBox.Show(validationMessage);
@@ -153,13 +156,20 @@ namespace StockManagementApplication.UserInterfaces
                     ItemId = Convert.ToInt32(itemComboBox.SelectedValue),
                     Quantity = Convert.ToInt32(quantityTextBox.Text)
                 };
+
+                var avialableQty = avialableQuantityTextBox.Text;
+                if (stock.Quantity > Convert.ToInt32(avialableQty))
+                {
+                    string message = "Quantity is not Available";
+                    MessageBox.Show(message);
+                    return;
+                }
                 var isExist = IsExist(stock);
                 if (!isExist)
                 {
                     stockOuts.Add(stock);
                 }
 
-                serial++;
                 var product = new StockOutViewModel()
                 {
                     Id = stock.Id,
@@ -167,15 +177,19 @@ namespace StockManagementApplication.UserInterfaces
                     Company = companyComboBox.Text,
                     Name = itemComboBox.Text,
                     Quantity = stock.Quantity,
-                    SerialNo = serial
+                    SerialNo = _serial,
+
                 };
+                _serial++;
                 var isItemExist = IsItemExist(product);
                 if (!isItemExist)
                 {
                     productVm.Add(product);
                 }
 
+                RefreshField();
                 GetAllInList();
+
             }
             catch (Exception exception)
             {
@@ -232,6 +246,32 @@ namespace StockManagementApplication.UserInterfaces
                 ProductListDataGridView.DataSource = null;
                 ProductListDataGridView.DataSource = productVm;
                 ProductListDataGridView.AutoGenerateColumns = false;
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+
+        public void RefreshField()
+        {
+            itemComboBox.Text = reorderLevelTextBox.Text = avialableQuantityTextBox.Text = quantityTextBox.Text = "";
+        }
+
+        public int AvialableQty(StockOut stockOut)
+        {
+            try
+            {
+                foreach (var model in stockOuts)
+                {
+                    if (stockOut.ItemId == model.ItemId)
+                    {
+                        model.Quantity -= stockOut.Quantity;
+                        return model.Quantity;
+                    }
+                }
+
+                return 0;
             }
             catch (Exception e)
             {
