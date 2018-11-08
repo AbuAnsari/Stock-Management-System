@@ -241,6 +241,7 @@
             this.LostButton.TabIndex = 8;
             this.LostButton.Text = "Lost";
             this.LostButton.UseVisualStyleBackColor = true;
+            this.LostButton.Click += new System.EventHandler(this.LostButton_Click);
             // 
             // DamageButton
             // 
@@ -250,6 +251,7 @@
             this.DamageButton.TabIndex = 7;
             this.DamageButton.Text = "Damage";
             this.DamageButton.UseVisualStyleBackColor = true;
+            this.DamageButton.Click += new System.EventHandler(this.DamageButton_Click);
             // 
             // SellButton
             // 

@@ -32,7 +32,7 @@ namespace StockManagementApplication.UserInterfaces
                     return;
                 }
 
-                HomeForm homeForm= new HomeForm();
+                HomeForm homeForm = new HomeForm();
                 homeForm.Show();
 
             }
@@ -41,7 +41,6 @@ namespace StockManagementApplication.UserInterfaces
                 throw new Exception(exception.Message);
             }
         }
-
         public void RefreshField()
         {
             userNameTextBox.Text = passwordTextBox.Text = "";

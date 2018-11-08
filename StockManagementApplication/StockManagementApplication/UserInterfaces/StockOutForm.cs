@@ -315,5 +315,67 @@ namespace StockManagementApplication.UserInterfaces
                 throw new Exception(exception.Message);
             }
         }
+
+        private void DamageButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (_stockOuts != null)
+                {
+                    foreach (var stockOut in _stockOuts)
+                    {
+                        stockOut.StockOutType = StockOutType.Damage;
+                        stockOut.OutDate = DateTime.Now;
+                        stockOut.CreateBy = "Admin";
+                        stockOut.CreateDate = DateTime.Now;
+                    }
+
+                    var isSave = _stockOutManager.Save(_stockOuts);
+                    if (isSave)
+                    {
+                        string successMessage = "Info Save Successfully";
+                        MessageBox.Show(successMessage);
+                        return;
+                    }
+                    string failMessage = "Info Save Fail";
+                    MessageBox.Show(failMessage);
+                }
+            }
+            catch (Exception exception)
+            {
+                throw new Exception(exception.Message);
+            }
+        }
+
+        private void LostButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (_stockOuts != null)
+                {
+                    foreach (var stockOut in _stockOuts)
+                    {
+                        stockOut.StockOutType = StockOutType.Lost;
+                        stockOut.OutDate = DateTime.Now;
+                        stockOut.CreateBy = "Admin";
+                        stockOut.CreateDate = DateTime.Now;
+                    }
+
+                    var isSave = _stockOutManager.Save(_stockOuts);
+                    if (isSave)
+                    {
+                        string successMessage = "Info Save Successfully";
+                        MessageBox.Show(successMessage);
+                        return;
+                    }
+                    string failMessage = "Info Save Fail";
+                    MessageBox.Show(failMessage);
+                }
+            }
+            catch (Exception exception)
+            {
+                throw new Exception(exception.Message);
+            }
+        }
     }
 }

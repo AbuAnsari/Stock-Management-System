@@ -26,7 +26,7 @@ namespace StockManagementApplication.UserInterfaces
                 var userInfo = new UserInfo();
                 userInfo.Name = userNameTextBox.Text;
                 userInfo.Password = passwordTextBox.Text;
-                userInfo.CreateBy = "Admin";
+                userInfo.CreateBy = Environment.UserName;
                 userInfo.CrateDate = DateTime.Now;
                 var isUserNameExist = _userManager.IsUserNameExist(userInfo);
                 if (isUserNameExist)
