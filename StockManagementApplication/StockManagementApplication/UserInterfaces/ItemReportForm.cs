@@ -61,10 +61,10 @@ namespace StockManagementApplication.UserInterfaces
                     MessageBox.Show(validationMessage);
                     return;
                 }
-                Item item = new Item();
-                item.CategoryId = Convert.ToInt32(categoryComboBox.SelectedValue);
-                item.CompanyId = Convert.ToInt32(companyComboBox.SelectedValue);
-                var itemList = _itemManager.GetItemReport(item);
+                
+                var categoryId = Convert.ToInt32(categoryComboBox.SelectedValue);
+                var companyId = Convert.ToInt32(companyComboBox.SelectedValue);
+                var itemList = _itemManager.GetItemReport(categoryId, companyId);
                 ItemReportDataGridView.DataSource = itemList;
 
 

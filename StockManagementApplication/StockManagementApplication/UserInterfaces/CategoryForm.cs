@@ -7,7 +7,7 @@ namespace StockManagementApplication.UserInterfaces
 {
     public partial class CategoryForm : Form
     {
-        CategoryManager _categoryManager = new CategoryManager();
+        readonly CategoryManager _categoryManager = new CategoryManager();
         public CategoryForm()
         {
             InitializeComponent();
@@ -46,6 +46,7 @@ namespace StockManagementApplication.UserInterfaces
                 {
                     var successMessage = "Category info Save Successfully";
                     RefreshFiled();
+                    GetAllCategory();
                     MessageBox.Show(successMessage);
                     return;
                 }
@@ -107,6 +108,7 @@ namespace StockManagementApplication.UserInterfaces
                 {
                     var successMessage = "Category info Update Successfully";
                     RefreshFiled();
+                    GetAllCategory();
                     MessageBox.Show(successMessage);
                     return;
                 }

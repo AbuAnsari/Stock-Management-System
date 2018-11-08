@@ -163,6 +163,7 @@ namespace StockManagementApplication.UserInterfaces
                 {
                     string message = "Quantity is not Available";
                     MessageBox.Show(message);
+                    return;
                 }
 
                 var isReorder = ReorderLevel(stock);
@@ -266,8 +267,11 @@ namespace StockManagementApplication.UserInterfaces
             try
             {
                 var reorderLevel = Convert.ToInt32(reorderLevelTextBox.Text);
+                int quantityInDb = Convert.ToInt32(avialableQuantityTextBox.Text);
+                int quantity = stockOut.Quantity;
+                int orderQty = quantity + reorderLevel;
 
-                if (stockOut.Quantity < reorderLevel)
+                if (quantityInDb < orderQty)
                 {
                     return true;
                 }

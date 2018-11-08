@@ -108,5 +108,26 @@ namespace StockManagementApplication
                 _sellsReport.Activate();
             }
         }
+
+        private UserCreationForm _userCreationForm;
+        private void manageUserToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (_userCreationForm== null)
+                {
+                    _userCreationForm= new UserCreationForm();
+                    _userCreationForm.Show();
+                }
+                else
+                {
+                    _userCreationForm.Activate();
+                }
+            }
+            catch (Exception exception)
+            {
+                throw new Exception(exception.Message);
+            }
+        }
     }
 }

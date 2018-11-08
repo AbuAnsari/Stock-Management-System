@@ -83,6 +83,7 @@ namespace StockManagementApplication.UserInterfaces
                 var isSave = _itemManager.Save(item);
                 if (isSave)
                 {
+                    RefreshField();
                     var successMessage = "Item Info Save Successfully";
                     MessageBox.Show(successMessage);
                     return;
@@ -95,6 +96,11 @@ namespace StockManagementApplication.UserInterfaces
             {
                 throw new Exception(exception.Message);
             }
+        }
+
+        public void RefreshField()
+        {
+            itemNameTextBox.Text = "";
         }
     }
 }

@@ -144,6 +144,7 @@ namespace StockManagementApplication.UserInterfaces
                 var isSave = _stockInManager.Save(stock);
                 if (isSave)
                 {
+                    RefreshField();
                     string successMessage = "Info Save Successfuuly";
                     MessageBox.Show(successMessage);
                     return;
@@ -155,6 +156,11 @@ namespace StockManagementApplication.UserInterfaces
             {
                 throw new Exception(exception.Message);
             }
+        }
+
+        public void RefreshField()
+        {
+            itemComboBox.Text = reorderLevelTextBox.Text = avialableQuantityTextBox.Text = quantityTextBox.Text = "";
         }
     }
 }

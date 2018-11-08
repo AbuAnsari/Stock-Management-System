@@ -82,8 +82,7 @@ namespace StockManagementApplication.DAL
                 throw new Exception(e.Message);
             }
         }
-
-        public DataTable GetItemReport(Item item)
+        public DataTable GetItemReport(int? categoryId, int? companyId)
         {
             try
             {
@@ -91,7 +90,7 @@ namespace StockManagementApplication.DAL
                             "LEFT JOIN Categories c ON c.Id= i.CategoryId " +
                             "LEFT JOIN Companies co ON co.Id= i.CompanyId " +
                             "LEFT JOIN Stocks s ON i.Id= s.ItemId " +
-                            "WHERE i.CategoryId=" + item.CategoryId + " OR i.CompanyId=" + item.CompanyId + " " +
+                            "WHERE i.CategoryId=" + categoryId + " AND (i.CompanyId=" + companyId + " OR i.CompanyId IS NULL) " +
                             "GROUP BY i.Name,c.Name, co.Name, i.ReorderLevel";
                 var dataAdapter = _genericRepository.ExecuteAdapter(query, _connectionString);
                 var dataTable = new DataTable();
