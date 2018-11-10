@@ -39,6 +39,7 @@
             this.createByDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.createDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.companyBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.messageLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.CompanyDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.companyBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -80,7 +81,7 @@
             this.createByDataGridViewTextBoxColumn,
             this.createDateDataGridViewTextBoxColumn});
             this.CompanyDataGridView.DataSource = this.companyBindingSource;
-            this.CompanyDataGridView.Location = new System.Drawing.Point(82, 113);
+            this.CompanyDataGridView.Location = new System.Drawing.Point(72, 139);
             this.CompanyDataGridView.Name = "CompanyDataGridView";
             this.CompanyDataGridView.Size = new System.Drawing.Size(344, 230);
             this.CompanyDataGridView.TabIndex = 3;
@@ -123,11 +124,21 @@
             // 
             this.companyBindingSource.DataSource = typeof(StockManagementApplication.Models.Company);
             // 
+            // messageLabel
+            // 
+            this.messageLabel.AutoSize = true;
+            this.messageLabel.ForeColor = System.Drawing.Color.Red;
+            this.messageLabel.Location = new System.Drawing.Point(79, 113);
+            this.messageLabel.Name = "messageLabel";
+            this.messageLabel.Size = new System.Drawing.Size(0, 13);
+            this.messageLabel.TabIndex = 4;
+            // 
             // CompanyForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(448, 351);
+            this.ClientSize = new System.Drawing.Size(479, 400);
+            this.Controls.Add(this.messageLabel);
             this.Controls.Add(this.CompanyDataGridView);
             this.Controls.Add(this.SaveButton);
             this.Controls.Add(this.nameTextBox);
@@ -154,5 +165,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn createByDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn createDateDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource companyBindingSource;
+        private System.Windows.Forms.Label messageLabel;
     }
 }

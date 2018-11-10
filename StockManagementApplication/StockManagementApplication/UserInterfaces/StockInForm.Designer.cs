@@ -41,6 +41,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.quantityTextBox = new System.Windows.Forms.TextBox();
             this.SaveButton = new System.Windows.Forms.Button();
+            this.messageLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // companyComboBox
@@ -157,11 +158,21 @@
             this.SaveButton.UseVisualStyleBackColor = true;
             this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
             // 
+            // messageLabel
+            // 
+            this.messageLabel.AutoSize = true;
+            this.messageLabel.ForeColor = System.Drawing.Color.Red;
+            this.messageLabel.Location = new System.Drawing.Point(147, 287);
+            this.messageLabel.Name = "messageLabel";
+            this.messageLabel.Size = new System.Drawing.Size(0, 13);
+            this.messageLabel.TabIndex = 8;
+            // 
             // StockInForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(470, 358);
+            this.Controls.Add(this.messageLabel);
             this.Controls.Add(this.SaveButton);
             this.Controls.Add(this.quantityTextBox);
             this.Controls.Add(this.avialableQuantityTextBox);
@@ -197,5 +208,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox quantityTextBox;
         private System.Windows.Forms.Button SaveButton;
+        private System.Windows.Forms.Label messageLabel;
     }
 }

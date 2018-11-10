@@ -58,10 +58,10 @@ namespace StockManagementApplication.UserInterfaces
                 if (categoryComboBox.SelectedValue == null && companyComboBox.SelectedValue == null)
                 {
                     string validationMessage = "Please Selcet atleast one ComboBox";
-                    MessageBox.Show(validationMessage);
+                    messageLabel.Text = validationMessage;
                     return;
                 }
-                
+
                 var categoryId = Convert.ToInt32(categoryComboBox.SelectedValue);
                 var companyId = Convert.ToInt32(companyComboBox.SelectedValue);
                 var itemList = _itemManager.GetItemReport(categoryId, companyId);

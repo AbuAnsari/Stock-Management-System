@@ -34,8 +34,6 @@
             this.SaveButton = new System.Windows.Forms.Button();
             this.UpdateButton = new System.Windows.Forms.Button();
             this.CategoryDataGridView = new System.Windows.Forms.DataGridView();
-            this.hiddenLabel = new System.Windows.Forms.Label();
-            this.ClearButton = new System.Windows.Forms.Button();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.serialDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -44,6 +42,9 @@
             this.updateByDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.updateDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.categoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.hiddenLabel = new System.Windows.Forms.Label();
+            this.ClearButton = new System.Windows.Forms.Button();
+            this.messageLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.CategoryDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -97,30 +98,11 @@
             this.updateByDataGridViewTextBoxColumn,
             this.updateDateDataGridViewTextBoxColumn});
             this.CategoryDataGridView.DataSource = this.categoryBindingSource;
-            this.CategoryDataGridView.Location = new System.Drawing.Point(36, 118);
+            this.CategoryDataGridView.Location = new System.Drawing.Point(36, 150);
             this.CategoryDataGridView.Name = "CategoryDataGridView";
             this.CategoryDataGridView.Size = new System.Drawing.Size(346, 233);
             this.CategoryDataGridView.TabIndex = 4;
             this.CategoryDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CategoryDataGridView_CellDoubleClick);
-            // 
-            // hiddenLabel
-            // 
-            this.hiddenLabel.AutoSize = true;
-            this.hiddenLabel.Location = new System.Drawing.Point(119, 99);
-            this.hiddenLabel.Name = "hiddenLabel";
-            this.hiddenLabel.Size = new System.Drawing.Size(0, 13);
-            this.hiddenLabel.TabIndex = 5;
-            this.hiddenLabel.Visible = false;
-            // 
-            // ClearButton
-            // 
-            this.ClearButton.Location = new System.Drawing.Point(201, 73);
-            this.ClearButton.Name = "ClearButton";
-            this.ClearButton.Size = new System.Drawing.Size(75, 23);
-            this.ClearButton.TabIndex = 6;
-            this.ClearButton.Text = "Clear";
-            this.ClearButton.UseVisualStyleBackColor = true;
-            this.ClearButton.Click += new System.EventHandler(this.ClearButton_Click);
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -174,11 +156,40 @@
             // 
             this.categoryBindingSource.DataSource = typeof(StockManagementApplication.Models.Category);
             // 
+            // hiddenLabel
+            // 
+            this.hiddenLabel.AutoSize = true;
+            this.hiddenLabel.Location = new System.Drawing.Point(119, 99);
+            this.hiddenLabel.Name = "hiddenLabel";
+            this.hiddenLabel.Size = new System.Drawing.Size(0, 13);
+            this.hiddenLabel.TabIndex = 5;
+            this.hiddenLabel.Visible = false;
+            // 
+            // ClearButton
+            // 
+            this.ClearButton.Location = new System.Drawing.Point(201, 73);
+            this.ClearButton.Name = "ClearButton";
+            this.ClearButton.Size = new System.Drawing.Size(75, 23);
+            this.ClearButton.TabIndex = 6;
+            this.ClearButton.Text = "Clear";
+            this.ClearButton.UseVisualStyleBackColor = true;
+            this.ClearButton.Click += new System.EventHandler(this.ClearButton_Click);
+            // 
+            // messageLabel
+            // 
+            this.messageLabel.AutoSize = true;
+            this.messageLabel.ForeColor = System.Drawing.Color.Red;
+            this.messageLabel.Location = new System.Drawing.Point(71, 112);
+            this.messageLabel.Name = "messageLabel";
+            this.messageLabel.Size = new System.Drawing.Size(0, 13);
+            this.messageLabel.TabIndex = 6;
+            // 
             // CategoryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(453, 363);
+            this.ClientSize = new System.Drawing.Size(467, 409);
+            this.Controls.Add(this.messageLabel);
             this.Controls.Add(this.ClearButton);
             this.Controls.Add(this.hiddenLabel);
             this.Controls.Add(this.CategoryDataGridView);
@@ -213,5 +224,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn updateDateDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource categoryBindingSource;
         private System.Windows.Forms.Button ClearButton;
+        private System.Windows.Forms.Label messageLabel;
     }
 }

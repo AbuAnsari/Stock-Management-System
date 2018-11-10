@@ -23,7 +23,7 @@ namespace StockManagementApplication.UserInterfaces
                 if (nameTextBox.Text == "")
                 {
                     string validationMessage = "Please give Name";
-                    MessageBox.Show(validationMessage);
+                    messageLabel.Text = validationMessage;
                     return;
                 }
 
@@ -35,7 +35,7 @@ namespace StockManagementApplication.UserInterfaces
                 if (isExist)
                 {
                     string validationMessage = "Name already Exist...Please give another name";
-                    MessageBox.Show(validationMessage);
+                    messageLabel.Text = validationMessage;
                     return;
                 }
 
@@ -43,13 +43,11 @@ namespace StockManagementApplication.UserInterfaces
                 if (isSave)
                 {
                     GetAllCompany();
-                    var successMessage = "Company info Save Successfully";
                     nameTextBox.Text = "";
-                    MessageBox.Show(successMessage);
                     return;
                 }
                 var failMessage = "Company info Save fail";
-                MessageBox.Show(failMessage);
+                messageLabel.Text = failMessage;
             }
             catch (Exception exception)
             {

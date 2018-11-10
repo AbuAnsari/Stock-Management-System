@@ -33,6 +33,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.userNameTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.messageLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // LoginButton
@@ -78,11 +79,21 @@
             this.label1.TabIndex = 5;
             this.label1.Text = "User Name";
             // 
+            // messageLabel
+            // 
+            this.messageLabel.AutoSize = true;
+            this.messageLabel.ForeColor = System.Drawing.Color.Red;
+            this.messageLabel.Location = new System.Drawing.Point(112, 149);
+            this.messageLabel.Name = "messageLabel";
+            this.messageLabel.Size = new System.Drawing.Size(0, 13);
+            this.messageLabel.TabIndex = 7;
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(466, 306);
+            this.Controls.Add(this.messageLabel);
             this.Controls.Add(this.LoginButton);
             this.Controls.Add(this.passwordTextBox);
             this.Controls.Add(this.label2);
@@ -102,5 +113,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox userNameTextBox;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label messageLabel;
     }
 }

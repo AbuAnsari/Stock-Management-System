@@ -17,17 +17,17 @@ namespace StockManagementApplication.UserInterfaces
             if (fromDatDateTimePicker.Text == "" || toDateDateTimePicker.Text == "")
             {
                 string validationMessage = "Please Select Required Fields";
-                MessageBox.Show(validationMessage);
+                messageLabel.Text = validationMessage;
                 return;
             }
 
-           
+
             var fromDate = Convert.ToDateTime(fromDatDateTimePicker.Text);
             var toDate = Convert.ToDateTime(toDateDateTimePicker.Text);
-            if (toDate.Day<= fromDate.Day)
+            if (toDate.Day <= fromDate.Day)
             {
                 string validationMessage = "To Date Must be Equal or Greater than from date";
-                MessageBox.Show(validationMessage);
+                messageLabel.Text = validationMessage;
                 return;
             }
             var sellItems = _stockOutManager.GetAllSellItem(fromDate, toDate);

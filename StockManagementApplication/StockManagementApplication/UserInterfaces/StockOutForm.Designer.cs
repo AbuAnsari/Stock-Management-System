@@ -53,6 +53,7 @@
             this.LostButton = new System.Windows.Forms.Button();
             this.DamageButton = new System.Windows.Forms.Button();
             this.SellButton = new System.Windows.Forms.Button();
+            this.messageLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.ProductListDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productViewModelBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -69,7 +70,7 @@
             this.nameDataGridViewTextBoxColumn,
             this.quantityDataGridViewTextBoxColumn});
             this.ProductListDataGridView.DataSource = this.productViewModelBindingSource;
-            this.ProductListDataGridView.Location = new System.Drawing.Point(22, 274);
+            this.ProductListDataGridView.Location = new System.Drawing.Point(27, 315);
             this.ProductListDataGridView.Name = "ProductListDataGridView";
             this.ProductListDataGridView.Size = new System.Drawing.Size(664, 242);
             this.ProductListDataGridView.TabIndex = 21;
@@ -235,7 +236,7 @@
             // 
             // LostButton
             // 
-            this.LostButton.Location = new System.Drawing.Point(611, 533);
+            this.LostButton.Location = new System.Drawing.Point(616, 574);
             this.LostButton.Name = "LostButton";
             this.LostButton.Size = new System.Drawing.Size(75, 23);
             this.LostButton.TabIndex = 8;
@@ -245,7 +246,7 @@
             // 
             // DamageButton
             // 
-            this.DamageButton.Location = new System.Drawing.Point(517, 533);
+            this.DamageButton.Location = new System.Drawing.Point(522, 574);
             this.DamageButton.Name = "DamageButton";
             this.DamageButton.Size = new System.Drawing.Size(75, 23);
             this.DamageButton.TabIndex = 7;
@@ -255,7 +256,7 @@
             // 
             // SellButton
             // 
-            this.SellButton.Location = new System.Drawing.Point(424, 533);
+            this.SellButton.Location = new System.Drawing.Point(429, 574);
             this.SellButton.Name = "SellButton";
             this.SellButton.Size = new System.Drawing.Size(75, 23);
             this.SellButton.TabIndex = 6;
@@ -263,11 +264,21 @@
             this.SellButton.UseVisualStyleBackColor = true;
             this.SellButton.Click += new System.EventHandler(this.SellButton_Click);
             // 
+            // messageLabel
+            // 
+            this.messageLabel.AutoSize = true;
+            this.messageLabel.ForeColor = System.Drawing.Color.Red;
+            this.messageLabel.Location = new System.Drawing.Point(259, 289);
+            this.messageLabel.Name = "messageLabel";
+            this.messageLabel.Size = new System.Drawing.Size(0, 13);
+            this.messageLabel.TabIndex = 22;
+            // 
             // StockOutForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(714, 616);
+            this.Controls.Add(this.messageLabel);
             this.Controls.Add(this.SellButton);
             this.Controls.Add(this.DamageButton);
             this.Controls.Add(this.LostButton);
@@ -320,5 +331,6 @@
         private System.Windows.Forms.Button LostButton;
         private System.Windows.Forms.Button DamageButton;
         private System.Windows.Forms.Button SellButton;
+        private System.Windows.Forms.Label messageLabel;
     }
 }

@@ -37,6 +37,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.reorderLevelTextBox = new System.Windows.Forms.TextBox();
             this.SaveButton = new System.Windows.Forms.Button();
+            this.messageLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -115,11 +116,21 @@
             this.SaveButton.UseVisualStyleBackColor = true;
             this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
             // 
+            // messageLabel
+            // 
+            this.messageLabel.AutoSize = true;
+            this.messageLabel.ForeColor = System.Drawing.Color.Red;
+            this.messageLabel.Location = new System.Drawing.Point(90, 223);
+            this.messageLabel.Name = "messageLabel";
+            this.messageLabel.Size = new System.Drawing.Size(0, 13);
+            this.messageLabel.TabIndex = 6;
+            // 
             // ItemForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(415, 286);
+            this.Controls.Add(this.messageLabel);
             this.Controls.Add(this.SaveButton);
             this.Controls.Add(this.reorderLevelTextBox);
             this.Controls.Add(this.itemNameTextBox);
@@ -148,5 +159,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox reorderLevelTextBox;
         private System.Windows.Forms.Button SaveButton;
+        private System.Windows.Forms.Label messageLabel;
     }
 }

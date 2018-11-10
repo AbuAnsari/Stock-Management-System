@@ -20,7 +20,7 @@ namespace StockManagementApplication.UserInterfaces
                 if (userNameTextBox.Text == "" || passwordTextBox.Text == "")
                 {
                     string validationMessage = "Please fillup Required fields";
-                    MessageBox.Show(validationMessage);
+                    messageLabel.Text = validationMessage;
                     return;
                 }
                 var userName = userNameTextBox.Text;
@@ -29,7 +29,7 @@ namespace StockManagementApplication.UserInterfaces
                 if (!isLogin)
                 {
                     string message = "Log in fail...Please give valid info";
-                    MessageBox.Show(message);
+                    messageLabel.Text = message;
                     return;
                 }
 

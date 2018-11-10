@@ -3,6 +3,7 @@ using StockManagementApplication.Models;
 using StockManagementApplication.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace StockManagementApplication.UserInterfaces
@@ -146,7 +147,7 @@ namespace StockManagementApplication.UserInterfaces
                 if (categoryComboBox.SelectedValue == null || companyComboBox.SelectedValue == null || itemComboBox.SelectedValue == null || qty == 0)
                 {
                     string validationMessage = "Please Fillup Required Field";
-                    MessageBox.Show(validationMessage);
+                    messageLabel.Text = validationMessage;
                     return;
                 }
 
@@ -162,7 +163,7 @@ namespace StockManagementApplication.UserInterfaces
                 if (stock.Quantity > Convert.ToInt32(avialableQty))
                 {
                     string message = "Quantity is not Available";
-                    MessageBox.Show(message);
+                    messageLabel.Text = message;
                     return;
                 }
 
@@ -170,7 +171,7 @@ namespace StockManagementApplication.UserInterfaces
                 if (isReorder)
                 {
                     string message = "Please Reorder this Item";
-                    MessageBox.Show(message);
+                    messageLabel.Text = message;
                     return;
                 }
                 var isExist = IsExist(stock);
@@ -303,11 +304,12 @@ namespace StockManagementApplication.UserInterfaces
                     if (isSave)
                     {
                         string successMessage = "Info Save Successfully";
-                        MessageBox.Show(successMessage);
+                        messageLabel.Text = successMessage;
+                        messageLabel.ForeColor = Color.Green;
                         return;
                     }
                     string failMessage = "Info Save Fail";
-                    MessageBox.Show(failMessage);
+                    messageLabel.Text = failMessage;
                 }
             }
             catch (Exception exception)
@@ -334,11 +336,12 @@ namespace StockManagementApplication.UserInterfaces
                     if (isSave)
                     {
                         string successMessage = "Info Save Successfully";
-                        MessageBox.Show(successMessage);
+                        messageLabel.Text = successMessage;
+                        messageLabel.ForeColor = Color.Green;
                         return;
                     }
                     string failMessage = "Info Save Fail";
-                    MessageBox.Show(failMessage);
+                    messageLabel.Text = failMessage;
                 }
             }
             catch (Exception exception)
@@ -365,11 +368,12 @@ namespace StockManagementApplication.UserInterfaces
                     if (isSave)
                     {
                         string successMessage = "Info Save Successfully";
-                        MessageBox.Show(successMessage);
+                        messageLabel.Text = successMessage;
+                        messageLabel.ForeColor = Color.Green;
                         return;
                     }
                     string failMessage = "Info Save Fail";
-                    MessageBox.Show(failMessage);
+                    messageLabel.Text = failMessage;
                 }
             }
             catch (Exception exception)

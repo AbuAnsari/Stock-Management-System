@@ -42,6 +42,7 @@
             this.availableQuantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.reorderLevelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.itemReportViewModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.messageLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.ItemReportDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemReportViewModelBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -103,7 +104,7 @@
             this.availableQuantityDataGridViewTextBoxColumn,
             this.reorderLevelDataGridViewTextBoxColumn});
             this.ItemReportDataGridView.DataSource = this.itemReportViewModelBindingSource;
-            this.ItemReportDataGridView.Location = new System.Drawing.Point(22, 153);
+            this.ItemReportDataGridView.Location = new System.Drawing.Point(23, 175);
             this.ItemReportDataGridView.Name = "ItemReportDataGridView";
             this.ItemReportDataGridView.Size = new System.Drawing.Size(632, 246);
             this.ItemReportDataGridView.TabIndex = 25;
@@ -150,11 +151,21 @@
             // 
             this.itemReportViewModelBindingSource.DataSource = typeof(StockManagementApplication.ViewModels.ItemReportViewModel);
             // 
+            // messageLabel
+            // 
+            this.messageLabel.AutoSize = true;
+            this.messageLabel.ForeColor = System.Drawing.Color.Red;
+            this.messageLabel.Location = new System.Drawing.Point(141, 147);
+            this.messageLabel.Name = "messageLabel";
+            this.messageLabel.Size = new System.Drawing.Size(0, 13);
+            this.messageLabel.TabIndex = 26;
+            // 
             // ItemReportForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(710, 433);
+            this.Controls.Add(this.messageLabel);
             this.Controls.Add(this.ItemReportDataGridView);
             this.Controls.Add(this.SearchButton);
             this.Controls.Add(this.label2);
@@ -185,5 +196,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn itemDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn availableQuantityDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn reorderLevelDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Label messageLabel;
     }
 }

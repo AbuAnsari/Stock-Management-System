@@ -35,6 +35,7 @@
             this.CreateButton = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.confirmPasswordTextBox = new System.Windows.Forms.TextBox();
+            this.messageLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -97,11 +98,21 @@
             this.confirmPasswordTextBox.TabIndex = 3;
             this.confirmPasswordTextBox.UseSystemPasswordChar = true;
             // 
+            // messageLabel
+            // 
+            this.messageLabel.AutoSize = true;
+            this.messageLabel.ForeColor = System.Drawing.Color.Red;
+            this.messageLabel.Location = new System.Drawing.Point(143, 196);
+            this.messageLabel.Name = "messageLabel";
+            this.messageLabel.Size = new System.Drawing.Size(0, 13);
+            this.messageLabel.TabIndex = 7;
+            // 
             // UserCreationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(487, 293);
+            this.Controls.Add(this.messageLabel);
             this.Controls.Add(this.CreateButton);
             this.Controls.Add(this.confirmPasswordTextBox);
             this.Controls.Add(this.label3);
@@ -125,5 +136,6 @@
         private System.Windows.Forms.Button CreateButton;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox confirmPasswordTextBox;
+        private System.Windows.Forms.Label messageLabel;
     }
 }

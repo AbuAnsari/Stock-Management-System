@@ -1,6 +1,7 @@
 ﻿using StockManagementApplication.BLL;
 using StockManagementApplication.Models;
 using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace StockManagementApplication.UserInterfaces
@@ -61,7 +62,7 @@ namespace StockManagementApplication.UserInterfaces
                 if (categoryComboBox.SelectedItem == null || companyComboBox.SelectedItem == null || itemNameTextBox.Text == "")
                 {
                     var validationMessage = "Please fillup the required field";
-                    MessageBox.Show(validationMessage);
+                    messageLabel.Text = validationMessage;
                     return;
                 }
 
@@ -76,7 +77,7 @@ namespace StockManagementApplication.UserInterfaces
                 if (isNameExist)
                 {
                     var validationMessage = "Item Name already exist";
-                    MessageBox.Show(validationMessage);
+                    messageLabel.Text = validationMessage;
                     return;
                 }
 
@@ -85,11 +86,12 @@ namespace StockManagementApplication.UserInterfaces
                 {
                     RefreshField();
                     var successMessage = "Item Info Save Successfully";
-                    MessageBox.Show(successMessage);
+                    messageLabel.ForeColor = Color.Green;
+                    messageLabel.Text = successMessage;
                     return;
                 }
                 var failMessage = "Item Info Save Successfully";
-                MessageBox.Show(failMessage);
+                messageLabel.Text = failMessage;
 
             }
             catch (Exception exception)
@@ -97,7 +99,6 @@ namespace StockManagementApplication.UserInterfaces
                 throw new Exception(exception.Message);
             }
         }
-
         public void RefreshField()
         {
             itemNameTextBox.Text = "";

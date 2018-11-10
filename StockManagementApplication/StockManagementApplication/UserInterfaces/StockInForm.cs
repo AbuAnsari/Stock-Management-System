@@ -1,6 +1,7 @@
 ﻿using StockManagementApplication.BLL;
 using StockManagementApplication.Models;
 using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace StockManagementApplication.UserInterfaces
@@ -129,7 +130,7 @@ namespace StockManagementApplication.UserInterfaces
                 if (categoryComboBox.SelectedValue == null || companyComboBox.SelectedValue == null || itemComboBox.SelectedValue == null || quantityTextBox.Text == "")
                 {
                     string validationMessage = "Please Fillup Required Field";
-                    MessageBox.Show(validationMessage);
+                    messageLabel.Text = validationMessage;
                     return;
                 }
 
@@ -146,18 +147,18 @@ namespace StockManagementApplication.UserInterfaces
                 {
                     RefreshField();
                     string successMessage = "Info Save Successfuuly";
-                    MessageBox.Show(successMessage);
+                    messageLabel.Text = successMessage;
+                    messageLabel.ForeColor = Color.Green;
                     return;
                 }
                 string failMessage = "Info Save Fail";
-                MessageBox.Show(failMessage);
+                messageLabel.Text = failMessage;
             }
             catch (Exception exception)
             {
                 throw new Exception(exception.Message);
             }
         }
-
         public void RefreshField()
         {
             itemComboBox.Text = reorderLevelTextBox.Text = avialableQuantityTextBox.Text = quantityTextBox.Text = "";

@@ -1,6 +1,7 @@
 ﻿using StockManagementApplication.BLL;
 using StockManagementApplication.Models;
 using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace StockManagementApplication.UserInterfaces
@@ -12,7 +13,6 @@ namespace StockManagementApplication.UserInterfaces
         {
             InitializeComponent();
         }
-
         private void CreateButton_Click(object sender, EventArgs e)
         {
             try
@@ -20,7 +20,7 @@ namespace StockManagementApplication.UserInterfaces
                 if (userNameTextBox.Text == "" || passwordTextBox.Text == "")
                 {
                     string validationMessage = "Please fillup Required fields";
-                    MessageBox.Show(validationMessage);
+                    messageLabel.Text = validationMessage;
                     return;
                 }
                 var userInfo = new UserInfo();
@@ -32,14 +32,14 @@ namespace StockManagementApplication.UserInterfaces
                 if (userInfo.Password != userInfo.ConfirmPassword)
                 {
                     var validationMessage = "Password not match";
-                    MessageBox.Show(validationMessage);
+                    messageLabel.Text = validationMessage;
                     return;
                 }
                 var isUserNameExist = _userManager.IsUserNameExist(userInfo);
                 if (isUserNameExist)
                 {
                     var validationMessage = "Username Already Exist";
-                    MessageBox.Show(validationMessage);
+                    messageLabel.Text = validationMessage;
                     return;
                 }
 
@@ -48,11 +48,12 @@ namespace StockManagementApplication.UserInterfaces
                 {
                     RefreshField();
                     string successMessage = "User Create Successfully";
-                    MessageBox.Show(successMessage);
+                    messageLabel.Text = successMessage;
+                    messageLabel.ForeColor = Color.Green;
                     return;
                 }
                 string failMessage = "User Create Successfully";
-                MessageBox.Show(failMessage);
+                messageLabel.Text = failMessage;
 
             }
             catch (Exception exception)
@@ -60,7 +61,6 @@ namespace StockManagementApplication.UserInterfaces
                 throw new Exception(exception.Message);
             }
         }
-
         public void RefreshField()
         {
             userNameTextBox.Text = passwordTextBox.Text = confirmPasswordTextBox.Text = "";

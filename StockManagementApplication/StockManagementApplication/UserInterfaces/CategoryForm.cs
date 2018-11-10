@@ -27,7 +27,7 @@ namespace StockManagementApplication.UserInterfaces
                 if (nameTextBox.Text == "")
                 {
                     var validationMessage = "Please give category name";
-                    MessageBox.Show(validationMessage);
+                    messageLabel.Text = validationMessage;
                     return;
                 }
                 var category = new Category();
@@ -38,20 +38,18 @@ namespace StockManagementApplication.UserInterfaces
                 if (isExist)
                 {
                     var validationMessage = "Name already exist. Please give another name";
-                    MessageBox.Show(validationMessage);
+                    messageLabel.Text = validationMessage;
                     return;
                 }
                 var isSave = _categoryManager.Save(category);
                 if (isSave)
                 {
-                    var successMessage = "Category info Save Successfully";
                     RefreshFiled();
                     GetAllCategory();
-                    MessageBox.Show(successMessage);
                     return;
                 }
                 var failMessage = "Category info Save Fail";
-                MessageBox.Show(failMessage);
+                messageLabel.Text = failMessage;
             }
             catch (Exception exception)
             {
@@ -87,7 +85,7 @@ namespace StockManagementApplication.UserInterfaces
                 if (nameTextBox.Text == "")
                 {
                     var validationMessage = "Please give category name";
-                    MessageBox.Show(validationMessage);
+                    messageLabel.Text = validationMessage;
                     return;
                 }
                 var category = new Category();
@@ -99,21 +97,19 @@ namespace StockManagementApplication.UserInterfaces
                 if (isExist)
                 {
                     var validationMessage = "Name already exist. Please give another name";
-                    MessageBox.Show(validationMessage);
+                    messageLabel.Text = validationMessage;
                     return;
                 }
 
                 var isUpdate = _categoryManager.Update(category);
                 if (isUpdate)
                 {
-                    var successMessage = "Category info Update Successfully";
                     RefreshFiled();
                     GetAllCategory();
-                    MessageBox.Show(successMessage);
                     return;
                 }
                 var failMessage = "Category info Update Fail";
-                MessageBox.Show(failMessage);
+                messageLabel.Text = failMessage;
             }
             catch (Exception exception)
             {

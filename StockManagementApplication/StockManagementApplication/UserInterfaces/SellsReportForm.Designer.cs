@@ -35,10 +35,11 @@
             this.toDateDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.SearchButton = new System.Windows.Forms.Button();
             this.sellItemsDataGridView = new System.Windows.Forms.DataGridView();
-            this.sellItemViewModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.serialNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sellItemViewModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.messageLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.sellItemsDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sellItemViewModelBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -94,14 +95,10 @@
             this.nameDataGridViewTextBoxColumn,
             this.quantityDataGridViewTextBoxColumn});
             this.sellItemsDataGridView.DataSource = this.sellItemViewModelBindingSource;
-            this.sellItemsDataGridView.Location = new System.Drawing.Point(72, 152);
+            this.sellItemsDataGridView.Location = new System.Drawing.Point(72, 182);
             this.sellItemsDataGridView.Name = "sellItemsDataGridView";
             this.sellItemsDataGridView.Size = new System.Drawing.Size(424, 186);
             this.sellItemsDataGridView.TabIndex = 4;
-            // 
-            // sellItemViewModelBindingSource
-            // 
-            this.sellItemViewModelBindingSource.DataSource = typeof(StockManagementApplication.ViewModels.SellItemViewModel);
             // 
             // serialNoDataGridViewTextBoxColumn
             // 
@@ -123,11 +120,25 @@
             this.quantityDataGridViewTextBoxColumn.HeaderText = "Quantity";
             this.quantityDataGridViewTextBoxColumn.Name = "quantityDataGridViewTextBoxColumn";
             // 
+            // sellItemViewModelBindingSource
+            // 
+            this.sellItemViewModelBindingSource.DataSource = typeof(StockManagementApplication.ViewModels.SellItemViewModel);
+            // 
+            // messageLabel
+            // 
+            this.messageLabel.AutoSize = true;
+            this.messageLabel.ForeColor = System.Drawing.Color.Red;
+            this.messageLabel.Location = new System.Drawing.Point(162, 150);
+            this.messageLabel.Name = "messageLabel";
+            this.messageLabel.Size = new System.Drawing.Size(0, 13);
+            this.messageLabel.TabIndex = 7;
+            // 
             // SellsReportForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(564, 380);
+            this.Controls.Add(this.messageLabel);
             this.Controls.Add(this.sellItemsDataGridView);
             this.Controls.Add(this.SearchButton);
             this.Controls.Add(this.toDateDateTimePicker);
@@ -155,5 +166,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn quantityDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource sellItemViewModelBindingSource;
+        private System.Windows.Forms.Label messageLabel;
     }
 }
