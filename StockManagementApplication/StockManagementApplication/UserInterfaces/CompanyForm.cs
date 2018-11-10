@@ -29,7 +29,7 @@ namespace StockManagementApplication.UserInterfaces
 
                 var company = new Company();
                 company.Name = nameTextBox.Text;
-                company.CreateBy = "Admin";
+                company.CreateBy = LoggerInfo.UserName;
                 company.CreateDate = DateTime.Now;
                 var isExist = _companyManager.IsNameExist(company);
                 if (isExist)

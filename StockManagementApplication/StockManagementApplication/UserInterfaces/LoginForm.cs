@@ -1,4 +1,5 @@
 ﻿using StockManagementApplication.BLL;
+using StockManagementApplication.Models;
 using System;
 using System.Windows.Forms;
 
@@ -32,6 +33,8 @@ namespace StockManagementApplication.UserInterfaces
                     return;
                 }
 
+                LoggerInfo.UserName = userName;
+                RefreshField();
                 HomeForm homeForm = new HomeForm();
                 homeForm.Show();
 

@@ -139,7 +139,7 @@ namespace StockManagementApplication.UserInterfaces
                 stock.ItemId = Convert.ToInt32(itemComboBox.SelectedValue);
                 stock.Quantity = Convert.ToInt32(quantityTextBox.Text);
                 stock.ReceiveDate = DateTime.Now;
-                stock.CreateBy = "Admin";
+                stock.CreateBy = LoggerInfo.UserName;
                 stock.CreateDate = DateTime.Now;
                 var isSave = _stockInManager.Save(stock);
                 if (isSave)

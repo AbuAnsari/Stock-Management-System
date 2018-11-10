@@ -26,8 +26,15 @@ namespace StockManagementApplication.UserInterfaces
                 var userInfo = new UserInfo();
                 userInfo.Name = userNameTextBox.Text;
                 userInfo.Password = passwordTextBox.Text;
-                userInfo.CreateBy = Environment.UserName;
+                userInfo.ConfirmPassword = confirmPasswordTextBox.Text;
+                userInfo.CreateBy = LoggerInfo.UserName;
                 userInfo.CrateDate = DateTime.Now;
+                if (userInfo.Password != userInfo.ConfirmPassword)
+                {
+                    var validationMessage = "Password not match";
+                    MessageBox.Show(validationMessage);
+                    return;
+                }
                 var isUserNameExist = _userManager.IsUserNameExist(userInfo);
                 if (isUserNameExist)
                 {
@@ -56,7 +63,7 @@ namespace StockManagementApplication.UserInterfaces
 
         public void RefreshField()
         {
-            userNameTextBox.Text = passwordTextBox.Text = "";
+            userNameTextBox.Text = passwordTextBox.Text = confirmPasswordTextBox.Text = "";
         }
     }
 }

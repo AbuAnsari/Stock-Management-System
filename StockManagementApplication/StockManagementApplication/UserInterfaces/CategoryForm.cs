@@ -32,7 +32,7 @@ namespace StockManagementApplication.UserInterfaces
                 }
                 var category = new Category();
                 category.Name = nameTextBox.Text;
-                category.CreateBy = "Admin";
+                category.CreateBy = LoggerInfo.UserName;
                 category.CreateDate = DateTime.Now;
                 var isExist = _categoryManager.IsNameExist(category);
                 if (isExist)
@@ -93,7 +93,7 @@ namespace StockManagementApplication.UserInterfaces
                 var category = new Category();
                 category.Id = Convert.ToInt32(hiddenLabel.Text);
                 category.Name = nameTextBox.Text;
-                category.UpdateBy = "Admin";
+                category.UpdateBy = LoggerInfo.UserName;
                 category.UpdateDate = DateTime.Now;
                 var isExist = _categoryManager.IsNameExist(category);
                 if (isExist)

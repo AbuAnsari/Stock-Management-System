@@ -295,7 +295,7 @@ namespace StockManagementApplication.UserInterfaces
                     {
                         stockOut.StockOutType = StockOutType.Sell;
                         stockOut.OutDate = DateTime.Now;
-                        stockOut.CreateBy = "Admin";
+                        stockOut.CreateBy = LoggerInfo.UserName;
                         stockOut.CreateDate = DateTime.Now;
                     }
 
@@ -326,7 +326,7 @@ namespace StockManagementApplication.UserInterfaces
                     {
                         stockOut.StockOutType = StockOutType.Damage;
                         stockOut.OutDate = DateTime.Now;
-                        stockOut.CreateBy = "Admin";
+                        stockOut.CreateBy = LoggerInfo.UserName;
                         stockOut.CreateDate = DateTime.Now;
                     }
 
@@ -357,7 +357,7 @@ namespace StockManagementApplication.UserInterfaces
                     {
                         stockOut.StockOutType = StockOutType.Lost;
                         stockOut.OutDate = DateTime.Now;
-                        stockOut.CreateBy = "Admin";
+                        stockOut.CreateBy = LoggerInfo.UserName;
                         stockOut.CreateDate = DateTime.Now;
                     }
 

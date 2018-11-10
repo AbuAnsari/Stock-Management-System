@@ -66,6 +66,7 @@
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Company.cs" />
     <Compile Include="Models\Item.cs" />
+    <Compile Include="Models\LoggerInfo.cs" />
     <Compile Include="Models\StockIn.cs" />
     <Compile Include="Models\StockOut.cs" />
     <Compile Include="Models\UserInfo.cs" />

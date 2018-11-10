@@ -33,12 +33,14 @@
             this.label2 = new System.Windows.Forms.Label();
             this.passwordTextBox = new System.Windows.Forms.TextBox();
             this.CreateButton = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.confirmPasswordTextBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(51, 53);
+            this.label1.Location = new System.Drawing.Point(73, 52);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(60, 13);
             this.label1.TabIndex = 0;
@@ -46,7 +48,7 @@
             // 
             // userNameTextBox
             // 
-            this.userNameTextBox.Location = new System.Drawing.Point(124, 50);
+            this.userNameTextBox.Location = new System.Drawing.Point(146, 49);
             this.userNameTextBox.Name = "userNameTextBox";
             this.userNameTextBox.Size = new System.Drawing.Size(200, 20);
             this.userNameTextBox.TabIndex = 1;
@@ -54,7 +56,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(51, 88);
+            this.label2.Location = new System.Drawing.Point(73, 87);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(58, 13);
             this.label2.TabIndex = 0;
@@ -62,14 +64,15 @@
             // 
             // passwordTextBox
             // 
-            this.passwordTextBox.Location = new System.Drawing.Point(124, 85);
+            this.passwordTextBox.Location = new System.Drawing.Point(146, 84);
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.Size = new System.Drawing.Size(200, 20);
             this.passwordTextBox.TabIndex = 2;
+            this.passwordTextBox.UseSystemPasswordChar = true;
             // 
             // CreateButton
             // 
-            this.CreateButton.Location = new System.Drawing.Point(124, 120);
+            this.CreateButton.Location = new System.Drawing.Point(146, 153);
             this.CreateButton.Name = "CreateButton";
             this.CreateButton.Size = new System.Drawing.Size(75, 23);
             this.CreateButton.TabIndex = 3;
@@ -77,12 +80,31 @@
             this.CreateButton.UseVisualStyleBackColor = true;
             this.CreateButton.Click += new System.EventHandler(this.CreateButton_Click);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(34, 120);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(96, 13);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Confirm Passsword";
+            // 
+            // confirmPasswordTextBox
+            // 
+            this.confirmPasswordTextBox.Location = new System.Drawing.Point(146, 117);
+            this.confirmPasswordTextBox.Name = "confirmPasswordTextBox";
+            this.confirmPasswordTextBox.Size = new System.Drawing.Size(200, 20);
+            this.confirmPasswordTextBox.TabIndex = 3;
+            this.confirmPasswordTextBox.UseSystemPasswordChar = true;
+            // 
             // UserCreationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(514, 347);
+            this.ClientSize = new System.Drawing.Size(487, 293);
             this.Controls.Add(this.CreateButton);
+            this.Controls.Add(this.confirmPasswordTextBox);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.passwordTextBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.userNameTextBox);
@@ -101,5 +123,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox passwordTextBox;
         private System.Windows.Forms.Button CreateButton;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox confirmPasswordTextBox;
     }
 }

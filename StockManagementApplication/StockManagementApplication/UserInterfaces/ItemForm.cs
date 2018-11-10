@@ -70,7 +70,7 @@ namespace StockManagementApplication.UserInterfaces
                 item.CompanyId = Convert.ToInt32(companyComboBox.SelectedValue);
                 item.Name = itemNameTextBox.Text;
                 item.ReorderLevel = Convert.ToInt32(reorderLevelTextBox.Text);
-                item.CreateBy = "Admin";
+                item.CreateBy = LoggerInfo.UserName;
                 item.CreateDate = DateTime.Now;
                 var isNameExist = _itemManager.IsNameExist(item);
                 if (isNameExist)
