@@ -23,7 +23,7 @@ namespace StockManagementApplication.BLL
 
         public List<Company> GetAll()
         {
-            var dataTable = _companyRepository.GetAll();
+            DataTable dataTable = _companyRepository.GetAll();
             var companies = new List<Company>();
             var serial = 1;
             foreach (DataRow dataRow in dataTable.Rows)
@@ -36,6 +36,7 @@ namespace StockManagementApplication.BLL
                 company.CreateDate = Convert.ToDateTime(dataRow["CreateDate"]);
 
                 companies.Add(company);
+                serial++;
             }
 
             return companies;

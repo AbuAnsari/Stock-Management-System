@@ -33,7 +33,7 @@ namespace StockManagementApplication.UserInterfaces
             }
             catch (Exception e)
             {
-                throw new Exception(e.Message);
+                messageLabel.Text = e.Message;
             }
         }
         private void categoryComboBox_SelectionChangeCommitted(object sender, EventArgs e)
@@ -57,7 +57,7 @@ namespace StockManagementApplication.UserInterfaces
             }
             catch (Exception exception)
             {
-                throw new Exception(exception.Message);
+                messageLabel.Text = exception.Message;
             }
         }
         private void companyComboBox_SelectionChangeCommitted(object sender, EventArgs e)
@@ -132,7 +132,7 @@ namespace StockManagementApplication.UserInterfaces
             }
             catch (Exception exception)
             {
-                throw new Exception(exception.Message);
+                messageLabel.Text = exception.Message;
             }
         }
 
@@ -190,11 +190,12 @@ namespace StockManagementApplication.UserInterfaces
                     SerialNo = _serial,
 
                 };
-                _serial++;
+
                 var isItemExist = IsItemExist(product);
                 if (!isItemExist)
                 {
                     _productViewModels.Add(product);
+                    _serial++;
                 }
 
                 RefreshField();
@@ -203,7 +204,7 @@ namespace StockManagementApplication.UserInterfaces
             }
             catch (Exception exception)
             {
-                throw new Exception(exception.Message);
+                messageLabel.Text = exception.Message;
             }
         }
         public bool IsExist(StockOut stockOut)
@@ -285,7 +286,6 @@ namespace StockManagementApplication.UserInterfaces
                 throw new Exception(e.Message);
             }
         }
-
         private void SellButton_Click(object sender, EventArgs e)
         {
             try
@@ -306,6 +306,9 @@ namespace StockManagementApplication.UserInterfaces
                         string successMessage = "Info Save Successfully";
                         messageLabel.Text = successMessage;
                         messageLabel.ForeColor = Color.Green;
+                        ProductListDataGridView.DataSource = null;
+                        _stockOuts.Clear();
+                        _productViewModels.Clear();
                         return;
                     }
                     string failMessage = "Info Save Fail";
@@ -314,10 +317,9 @@ namespace StockManagementApplication.UserInterfaces
             }
             catch (Exception exception)
             {
-                throw new Exception(exception.Message);
+                messageLabel.Text = exception.Message;
             }
         }
-
         private void DamageButton_Click(object sender, EventArgs e)
         {
             try
@@ -338,6 +340,9 @@ namespace StockManagementApplication.UserInterfaces
                         string successMessage = "Info Save Successfully";
                         messageLabel.Text = successMessage;
                         messageLabel.ForeColor = Color.Green;
+                        ProductListDataGridView.DataSource = null;
+                        _stockOuts.Clear();
+                        _productViewModels.Clear();
                         return;
                     }
                     string failMessage = "Info Save Fail";
@@ -346,10 +351,9 @@ namespace StockManagementApplication.UserInterfaces
             }
             catch (Exception exception)
             {
-                throw new Exception(exception.Message);
+                messageLabel.Text = exception.Message;
             }
         }
-
         private void LostButton_Click(object sender, EventArgs e)
         {
             try
@@ -370,6 +374,9 @@ namespace StockManagementApplication.UserInterfaces
                         string successMessage = "Info Save Successfully";
                         messageLabel.Text = successMessage;
                         messageLabel.ForeColor = Color.Green;
+                        ProductListDataGridView.DataSource = null;
+                        _stockOuts.Clear();
+                        _productViewModels.Clear();
                         return;
                     }
                     string failMessage = "Info Save Fail";
@@ -378,7 +385,7 @@ namespace StockManagementApplication.UserInterfaces
             }
             catch (Exception exception)
             {
-                throw new Exception(exception.Message);
+                messageLabel.Text = exception.Message;
             }
         }
     }

@@ -16,12 +16,14 @@ namespace StockManagementApplication.UserInterfaces
         private readonly CategoryManager _categoryManager = new CategoryManager();
         private readonly CompanyManager _companyManager = new CompanyManager();
         private readonly ItemManager _itemManager = new ItemManager();
+
         private void ItemForm_Load(object sender, EventArgs e)
         {
             LoadCategory();
             LoadCompany();
             reorderLevelTextBox.Text = 0.ToString();
         }
+
         public void LoadCategory()
         {
             try
@@ -37,6 +39,7 @@ namespace StockManagementApplication.UserInterfaces
                 throw new Exception(e.Message);
             }
         }
+
         public void LoadCompany()
         {
             try
@@ -52,11 +55,13 @@ namespace StockManagementApplication.UserInterfaces
                 throw new Exception(e.Message);
             }
         }
+
         private void SaveButton_Click(object sender, EventArgs e)
         {
             try
             {
-                if (categoryComboBox.SelectedItem == null || companyComboBox.SelectedItem == null || itemNameTextBox.Text == "")
+                if (categoryComboBox.SelectedItem == null || companyComboBox.SelectedItem == null ||
+                    itemNameTextBox.Text == "")
                 {
                     var validationMessage = "Please fillup the required field";
                     messageLabel.Text = validationMessage;
@@ -87,6 +92,7 @@ namespace StockManagementApplication.UserInterfaces
                     messageLabel.Text = successMessage;
                     return;
                 }
+
                 var failMessage = "Item Info Save Successfully";
                 messageLabel.Text = failMessage;
 
@@ -95,7 +101,9 @@ namespace StockManagementApplication.UserInterfaces
             {
                 throw new Exception(exception.Message);
             }
+
         }
+
         public void RefreshField()
         {
             itemNameTextBox.Text = "";

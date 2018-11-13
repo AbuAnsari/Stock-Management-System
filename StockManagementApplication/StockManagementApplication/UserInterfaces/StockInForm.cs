@@ -30,7 +30,7 @@ namespace StockManagementApplication.UserInterfaces
             }
             catch (Exception e)
             {
-                throw new Exception(e.Message);
+                messageLabel.Text = e.Message;
             }
         }
         private void categoryComboBox_SelectionChangeCommitted(object sender, EventArgs e)
@@ -54,7 +54,7 @@ namespace StockManagementApplication.UserInterfaces
             }
             catch (Exception exception)
             {
-                throw new Exception(exception.Message);
+                messageLabel.Text = exception.Message;
             }
         }
         private void companyComboBox_SelectionChangeCommitted(object sender, EventArgs e)
@@ -77,7 +77,7 @@ namespace StockManagementApplication.UserInterfaces
             }
             catch (Exception exception)
             {
-                throw new Exception(exception.Message);
+                messageLabel.Text = exception.Message;
             }
         }
         private void itemComboBox_SelectionChangeCommitted(object sender, EventArgs e)
@@ -120,7 +120,7 @@ namespace StockManagementApplication.UserInterfaces
             }
             catch (Exception exception)
             {
-                throw new Exception(exception.Message);
+                messageLabel.Text = exception.Message;
             }
         }
         private void SaveButton_Click(object sender, EventArgs e)
@@ -156,7 +156,7 @@ namespace StockManagementApplication.UserInterfaces
             }
             catch (Exception exception)
             {
-                throw new Exception(exception.Message);
+                messageLabel.Text = exception.Message;
             }
         }
         public void RefreshField()

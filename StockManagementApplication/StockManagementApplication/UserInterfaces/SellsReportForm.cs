@@ -14,24 +14,31 @@ namespace StockManagementApplication.UserInterfaces
 
         private void SearchButton_Click(object sender, EventArgs e)
         {
-            if (fromDatDateTimePicker.Text == "" || toDateDateTimePicker.Text == "")
+            try
             {
-                string validationMessage = "Please Select Required Fields";
-                messageLabel.Text = validationMessage;
-                return;
-            }
+                if (fromDatDateTimePicker.Text == "" || toDateDateTimePicker.Text == "")
+                {
+                    string validationMessage = "Please Select Required Fields";
+                    messageLabel.Text = validationMessage;
+                    return;
+                }
 
 
-            var fromDate = Convert.ToDateTime(fromDatDateTimePicker.Text);
-            var toDate = Convert.ToDateTime(toDateDateTimePicker.Text);
-            if (toDate.Day <= fromDate.Day)
-            {
-                string validationMessage = "To Date Must be Equal or Greater than from date";
-                messageLabel.Text = validationMessage;
-                return;
+                var fromDate = Convert.ToDateTime(fromDatDateTimePicker.Text);
+                var toDate = Convert.ToDateTime(toDateDateTimePicker.Text);
+                if (toDate.Day <= fromDate.Day)
+                {
+                    string validationMessage = "To Date Must be Equal or Greater than from date";
+                    messageLabel.Text = validationMessage;
+                    return;
+                }
+                var sellItems = _stockOutManager.GetAllSellItem(fromDate, toDate);
+                sellItemsDataGridView.DataSource = sellItems;
             }
-            var sellItems = _stockOutManager.GetAllSellItem(fromDate, toDate);
-            sellItemsDataGridView.DataSource = sellItems;
+            catch (Exception exception)
+            {
+                messageLabel.Text = exception.Message;
+            }
         }
     }
 }

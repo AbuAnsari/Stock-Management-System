@@ -58,7 +58,7 @@ namespace StockManagementApplication.UserInterfaces
             }
             catch (Exception exception)
             {
-                throw new Exception(exception.Message);
+                messageLabel.Text = exception.Message;
             }
         }
         public void RefreshField()

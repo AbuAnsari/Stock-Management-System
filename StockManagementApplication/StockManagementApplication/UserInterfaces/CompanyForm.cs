@@ -51,10 +51,9 @@ namespace StockManagementApplication.UserInterfaces
             }
             catch (Exception exception)
             {
-                throw new Exception(exception.Message);
+                messageLabel.Text = exception.Message;
             }
         }
-
         public void GetAllCompany()
         {
             try
@@ -64,7 +63,7 @@ namespace StockManagementApplication.UserInterfaces
             }
             catch (Exception e)
             {
-                throw new Exception(e.Message);
+                messageLabel.Text = e.Message;
             }
         }
 
