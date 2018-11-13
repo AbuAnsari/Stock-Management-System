@@ -47,7 +47,7 @@
             // companyComboBox
             // 
             this.companyComboBox.FormattingEnabled = true;
-            this.companyComboBox.Location = new System.Drawing.Point(150, 64);
+            this.companyComboBox.Location = new System.Drawing.Point(150, 63);
             this.companyComboBox.Name = "companyComboBox";
             this.companyComboBox.Size = new System.Drawing.Size(181, 21);
             this.companyComboBox.TabIndex = 2;
@@ -56,7 +56,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(82, 67);
+            this.label2.Location = new System.Drawing.Point(82, 66);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(51, 13);
             this.label2.TabIndex = 3;
@@ -65,7 +65,7 @@
             // categoryComboBox
             // 
             this.categoryComboBox.FormattingEnabled = true;
-            this.categoryComboBox.Location = new System.Drawing.Point(150, 26);
+            this.categoryComboBox.Location = new System.Drawing.Point(150, 25);
             this.categoryComboBox.Name = "categoryComboBox";
             this.categoryComboBox.Size = new System.Drawing.Size(181, 21);
             this.categoryComboBox.TabIndex = 1;
@@ -74,7 +74,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(84, 29);
+            this.label1.Location = new System.Drawing.Point(84, 28);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(49, 13);
             this.label1.TabIndex = 4;
@@ -83,7 +83,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(106, 103);
+            this.label3.Location = new System.Drawing.Point(106, 102);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(27, 13);
             this.label3.TabIndex = 3;
@@ -92,7 +92,7 @@
             // itemComboBox
             // 
             this.itemComboBox.FormattingEnabled = true;
-            this.itemComboBox.Location = new System.Drawing.Point(150, 103);
+            this.itemComboBox.Location = new System.Drawing.Point(150, 102);
             this.itemComboBox.Name = "itemComboBox";
             this.itemComboBox.Size = new System.Drawing.Size(181, 21);
             this.itemComboBox.TabIndex = 3;
@@ -171,7 +171,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(470, 358);
+            this.ClientSize = new System.Drawing.Size(507, 362);
             this.Controls.Add(this.messageLabel);
             this.Controls.Add(this.SaveButton);
             this.Controls.Add(this.quantityTextBox);
@@ -186,7 +186,10 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.categoryComboBox);
             this.Controls.Add(this.label1);
+            this.MaximumSize = new System.Drawing.Size(523, 401);
+            this.MinimumSize = new System.Drawing.Size(523, 401);
             this.Name = "StockInForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Stock In Form";
             this.ResumeLayout(false);
             this.PerformLayout();

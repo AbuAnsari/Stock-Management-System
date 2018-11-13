@@ -145,7 +145,10 @@
             this.Controls.Add(this.fromDatDateTimePicker);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.MaximumSize = new System.Drawing.Size(580, 419);
+            this.MinimumSize = new System.Drawing.Size(580, 419);
             this.Name = "SellsReportForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sells Report";
             ((System.ComponentModel.ISupportInitialize)(this.sellItemsDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sellItemViewModelBindingSource)).EndInit();

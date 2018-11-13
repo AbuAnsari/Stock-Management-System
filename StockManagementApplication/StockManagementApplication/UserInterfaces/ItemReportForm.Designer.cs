@@ -172,7 +172,10 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.companyComboBox);
             this.Controls.Add(this.categoryComboBox);
+            this.MaximumSize = new System.Drawing.Size(726, 472);
+            this.MinimumSize = new System.Drawing.Size(726, 472);
             this.Name = "ItemReportForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Search and View Item Summary";
             ((System.ComponentModel.ISupportInitialize)(this.ItemReportDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemReportViewModelBindingSource)).EndInit();

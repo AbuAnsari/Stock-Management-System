@@ -33,20 +33,22 @@ namespace StockManagementApplication.UserInterfaces
                     return;
                 }
 
+                this.Hide();
                 LoggerInfo.UserName = userName;
                 RefreshField();
                 HomeForm homeForm = new HomeForm();
+                homeForm.Closed += (s, args) => this.Close();
                 homeForm.Show();
 
             }
             catch (Exception exception)
             {
-                throw new Exception(exception.Message);
+                messageLabel.Text = exception.Message;
             }
         }
         public void RefreshField()
         {
-            userNameTextBox.Text = passwordTextBox.Text = "";
+            userNameTextBox.Text = passwordTextBox.Text = messageLabel.Text = "";
         }
     }
 }

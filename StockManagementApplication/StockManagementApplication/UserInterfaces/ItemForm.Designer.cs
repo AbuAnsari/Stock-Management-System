@@ -140,7 +140,10 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.categoryComboBox);
             this.Controls.Add(this.label1);
+            this.MaximumSize = new System.Drawing.Size(431, 325);
+            this.MinimumSize = new System.Drawing.Size(431, 325);
             this.Name = "ItemForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Item Form";
             this.Load += new System.EventHandler(this.ItemForm_Load);
             this.ResumeLayout(false);

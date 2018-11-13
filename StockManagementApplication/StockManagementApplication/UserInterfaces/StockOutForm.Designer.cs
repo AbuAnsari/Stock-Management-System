@@ -70,7 +70,7 @@
             this.nameDataGridViewTextBoxColumn,
             this.quantityDataGridViewTextBoxColumn});
             this.ProductListDataGridView.DataSource = this.productViewModelBindingSource;
-            this.ProductListDataGridView.Location = new System.Drawing.Point(27, 315);
+            this.ProductListDataGridView.Location = new System.Drawing.Point(33, 205);
             this.ProductListDataGridView.Name = "ProductListDataGridView";
             this.ProductListDataGridView.Size = new System.Drawing.Size(664, 242);
             this.ProductListDataGridView.TabIndex = 21;
@@ -122,7 +122,7 @@
             // 
             // AddButton
             // 
-            this.AddButton.Location = new System.Drawing.Point(262, 245);
+            this.AddButton.Location = new System.Drawing.Point(117, 139);
             this.AddButton.Name = "AddButton";
             this.AddButton.Size = new System.Drawing.Size(75, 23);
             this.AddButton.TabIndex = 5;
@@ -132,14 +132,14 @@
             // 
             // quantityTextBox
             // 
-            this.quantityTextBox.Location = new System.Drawing.Point(262, 208);
+            this.quantityTextBox.Location = new System.Drawing.Point(446, 93);
             this.quantityTextBox.Name = "quantityTextBox";
             this.quantityTextBox.Size = new System.Drawing.Size(181, 20);
             this.quantityTextBox.TabIndex = 4;
             // 
             // avialableQuantityTextBox
             // 
-            this.avialableQuantityTextBox.Location = new System.Drawing.Point(262, 173);
+            this.avialableQuantityTextBox.Location = new System.Drawing.Point(446, 58);
             this.avialableQuantityTextBox.Name = "avialableQuantityTextBox";
             this.avialableQuantityTextBox.ReadOnly = true;
             this.avialableQuantityTextBox.Size = new System.Drawing.Size(181, 20);
@@ -147,7 +147,7 @@
             // 
             // reorderLevelTextBox
             // 
-            this.reorderLevelTextBox.Location = new System.Drawing.Point(262, 138);
+            this.reorderLevelTextBox.Location = new System.Drawing.Point(446, 23);
             this.reorderLevelTextBox.Name = "reorderLevelTextBox";
             this.reorderLevelTextBox.ReadOnly = true;
             this.reorderLevelTextBox.Size = new System.Drawing.Size(181, 20);
@@ -156,7 +156,7 @@
             // itemComboBox
             // 
             this.itemComboBox.FormattingEnabled = true;
-            this.itemComboBox.Location = new System.Drawing.Point(262, 99);
+            this.itemComboBox.Location = new System.Drawing.Point(117, 99);
             this.itemComboBox.Name = "itemComboBox";
             this.itemComboBox.Size = new System.Drawing.Size(181, 21);
             this.itemComboBox.TabIndex = 3;
@@ -165,7 +165,7 @@
             // companyComboBox
             // 
             this.companyComboBox.FormattingEnabled = true;
-            this.companyComboBox.Location = new System.Drawing.Point(262, 60);
+            this.companyComboBox.Location = new System.Drawing.Point(117, 60);
             this.companyComboBox.Name = "companyComboBox";
             this.companyComboBox.Size = new System.Drawing.Size(181, 21);
             this.companyComboBox.TabIndex = 2;
@@ -174,7 +174,7 @@
             // categoryComboBox
             // 
             this.categoryComboBox.FormattingEnabled = true;
-            this.categoryComboBox.Location = new System.Drawing.Point(262, 22);
+            this.categoryComboBox.Location = new System.Drawing.Point(117, 22);
             this.categoryComboBox.Name = "categoryComboBox";
             this.categoryComboBox.Size = new System.Drawing.Size(181, 21);
             this.categoryComboBox.TabIndex = 1;
@@ -183,7 +183,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(135, 211);
+            this.label6.Location = new System.Drawing.Point(319, 96);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(97, 13);
             this.label6.TabIndex = 15;
@@ -192,7 +192,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(135, 176);
+            this.label5.Location = new System.Drawing.Point(319, 61);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(92, 13);
             this.label5.TabIndex = 16;
@@ -201,7 +201,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(150, 138);
+            this.label4.Location = new System.Drawing.Point(334, 23);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(74, 13);
             this.label4.TabIndex = 17;
@@ -210,7 +210,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(197, 99);
+            this.label3.Location = new System.Drawing.Point(52, 99);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(27, 13);
             this.label3.TabIndex = 18;
@@ -219,7 +219,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(173, 63);
+            this.label2.Location = new System.Drawing.Point(28, 63);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(51, 13);
             this.label2.TabIndex = 19;
@@ -228,7 +228,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(175, 25);
+            this.label1.Location = new System.Drawing.Point(30, 22);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(49, 13);
             this.label1.TabIndex = 20;
@@ -236,7 +236,7 @@
             // 
             // LostButton
             // 
-            this.LostButton.Location = new System.Drawing.Point(616, 574);
+            this.LostButton.Location = new System.Drawing.Point(619, 465);
             this.LostButton.Name = "LostButton";
             this.LostButton.Size = new System.Drawing.Size(75, 23);
             this.LostButton.TabIndex = 8;
@@ -246,7 +246,7 @@
             // 
             // DamageButton
             // 
-            this.DamageButton.Location = new System.Drawing.Point(522, 574);
+            this.DamageButton.Location = new System.Drawing.Point(525, 465);
             this.DamageButton.Name = "DamageButton";
             this.DamageButton.Size = new System.Drawing.Size(75, 23);
             this.DamageButton.TabIndex = 7;
@@ -256,7 +256,7 @@
             // 
             // SellButton
             // 
-            this.SellButton.Location = new System.Drawing.Point(429, 574);
+            this.SellButton.Location = new System.Drawing.Point(432, 465);
             this.SellButton.Name = "SellButton";
             this.SellButton.Size = new System.Drawing.Size(75, 23);
             this.SellButton.TabIndex = 6;
@@ -268,7 +268,7 @@
             // 
             this.messageLabel.AutoSize = true;
             this.messageLabel.ForeColor = System.Drawing.Color.Red;
-            this.messageLabel.Location = new System.Drawing.Point(259, 289);
+            this.messageLabel.Location = new System.Drawing.Point(124, 176);
             this.messageLabel.Name = "messageLabel";
             this.messageLabel.Size = new System.Drawing.Size(0, 13);
             this.messageLabel.TabIndex = 22;
@@ -277,7 +277,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(714, 616);
+            this.ClientSize = new System.Drawing.Size(714, 515);
             this.Controls.Add(this.messageLabel);
             this.Controls.Add(this.SellButton);
             this.Controls.Add(this.DamageButton);
@@ -296,7 +296,10 @@
             this.Controls.Add(this.itemComboBox);
             this.Controls.Add(this.companyComboBox);
             this.Controls.Add(this.categoryComboBox);
+            this.MaximumSize = new System.Drawing.Size(730, 554);
+            this.MinimumSize = new System.Drawing.Size(730, 554);
             this.Name = "StockOutForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Stock Out";
             ((System.ComponentModel.ISupportInitialize)(this.ProductListDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productViewModelBindingSource)).EndInit();

@@ -22,7 +22,6 @@ namespace StockManagementApplication.UserInterfaces
             LoadCompany();
             reorderLevelTextBox.Text = 0.ToString();
         }
-
         public void LoadCategory()
         {
             try
@@ -38,7 +37,6 @@ namespace StockManagementApplication.UserInterfaces
                 throw new Exception(e.Message);
             }
         }
-
         public void LoadCompany()
         {
             try
@@ -54,7 +52,6 @@ namespace StockManagementApplication.UserInterfaces
                 throw new Exception(e.Message);
             }
         }
-
         private void SaveButton_Click(object sender, EventArgs e)
         {
             try

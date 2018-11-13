@@ -143,7 +143,10 @@
             this.Controls.Add(this.SaveButton);
             this.Controls.Add(this.nameTextBox);
             this.Controls.Add(this.label1);
+            this.MaximumSize = new System.Drawing.Size(495, 439);
+            this.MinimumSize = new System.Drawing.Size(495, 439);
             this.Name = "CompanyForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Manufacture Company Form";
             this.Load += new System.EventHandler(this.CompanyForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.CompanyDataGridView)).EndInit();

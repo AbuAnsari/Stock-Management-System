@@ -5,6 +5,8 @@ namespace StockManagementApplication.DAL
 {
     public class UserRepository
     {
+        private string _userName;
+        private string _password;
         private readonly string _connectionString = GenericRepository.ConnectionString();
         readonly GenericRepository _genericRepository = new GenericRepository();
         public bool Save(UserInfo user)
@@ -41,7 +43,17 @@ namespace StockManagementApplication.DAL
             {
                 var query = "SELECT * FROM Users WHERE Name='" + userName + "' AND Password='" + password + "'";
                 var reader = _genericRepository.ExecuteReader(query, _connectionString);
-                return reader.HasRows;
+                if (reader.HasRows)
+                {
+                    reader.Read();
+                    this._userName = reader["Name"].ToString();
+                    this._password = reader["Password"].ToString();
+                }
+
+                if (this._userName == userName && this._password == password)
+                    return true;
+
+                throw new ApplicationException("Your User Name and Password is not correct.");
             }
             catch (Exception e)
             {

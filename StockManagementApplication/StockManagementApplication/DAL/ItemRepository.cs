@@ -82,16 +82,21 @@ namespace StockManagementApplication.DAL
                 throw new Exception(e.Message);
             }
         }
-        public DataTable GetItemReport(int? categoryId, int? companyId)
+        public DataTable GetItemReport(int categoryId, int? companyId)
         {
             try
             {
-                var query = "SELECT i.Name AS ItemName, co.Name AS CompanyName, c.Name AS CategoryName, i.ReorderLevel, ISNULL(ISNULL(SUM(s.InQuantity),0)-ISNULL(SUM(s.OutQuantity),0),0) AS AvailableQty FROM Items i " +
-                            "LEFT JOIN Categories c ON c.Id= i.CategoryId " +
-                            "LEFT JOIN Companies co ON co.Id= i.CompanyId " +
-                            "LEFT JOIN Stocks s ON i.Id= s.ItemId " +
-                            "WHERE i.CategoryId=" + categoryId + " AND (i.CompanyId=" + companyId + " OR i.CompanyId IS NULL) " +
-                            "GROUP BY i.Name,c.Name, co.Name, i.ReorderLevel";
+                var query =
+                    "SELECT i.Name AS ItemName, co.Name AS CompanyName, c.Name AS CategoryName, i.ReorderLevel, ISNULL(ISNULL(SUM(s.InQuantity),0)-ISNULL(SUM(s.OutQuantity),0),0) AS AvailableQty FROM Items i " +
+                    "LEFT JOIN Categories c ON c.Id= i.CategoryId " +
+                    "LEFT JOIN Companies co ON co.Id= i.CompanyId " +
+                    "LEFT JOIN Stocks s ON i.Id= s.ItemId " +
+                    "WHERE i.CategoryId=" + categoryId;
+
+                if (companyId > 0)
+                    query += " AND i.CompanyId=" + companyId;
+
+                query += " GROUP BY i.Name,c.Name, co.Name, i.ReorderLevel";
                 var dataAdapter = _genericRepository.ExecuteAdapter(query, _connectionString);
                 var dataTable = new DataTable();
                 dataAdapter.Fill(dataTable);

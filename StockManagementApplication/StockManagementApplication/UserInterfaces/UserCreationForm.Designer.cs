@@ -111,7 +111,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(487, 293);
+            this.ClientSize = new System.Drawing.Size(487, 262);
             this.Controls.Add(this.messageLabel);
             this.Controls.Add(this.CreateButton);
             this.Controls.Add(this.confirmPasswordTextBox);
@@ -120,7 +120,10 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.userNameTextBox);
             this.Controls.Add(this.label1);
+            this.MaximumSize = new System.Drawing.Size(503, 301);
+            this.MinimumSize = new System.Drawing.Size(503, 301);
             this.Name = "UserCreationForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "User Creation Form";
             this.ResumeLayout(false);
             this.PerformLayout();

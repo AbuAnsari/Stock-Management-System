@@ -11,123 +11,45 @@ namespace StockManagementApplication
             InitializeComponent();
         }
 
-        private CategoryForm _categoryForm;
         private void categorySetupToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (_categoryForm == null)
-            {
-                _categoryForm = new CategoryForm();
-                _categoryForm.Show();
-            }
-            else
-            {
-                _categoryForm.Activate();
-            }
+            CategoryForm categoryForm = new CategoryForm();
+            categoryForm.ShowDialog();
         }
-
-        private CompanyForm _companyForm;
         private void companySetupToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (_companyForm == null)
-            {
-                _companyForm = new CompanyForm();
-                _companyForm.Show();
-            }
-            else
-            {
-                _companyForm.Activate();
-            }
+            CompanyForm companyForm = new CompanyForm();
+            companyForm.ShowDialog();
         }
-
-        private ItemForm _itemForm;
         private void itemSetupToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (_itemForm == null)
-            {
-                _itemForm = new ItemForm();
-                _itemForm.Show();
-            }
-            else
-            {
-                _itemForm.Activate();
-            }
+            ItemForm itemForm = new ItemForm();
+            itemForm.ShowDialog();
         }
-
-        private StockInForm _stockInForm;
         private void stockToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (_stockInForm == null)
-            {
-                _stockInForm = new StockInForm();
-                _stockInForm.Show();
-            }
-            else
-            {
-                _stockInForm.Activate();
-            }
+            StockInForm stockInForm = new StockInForm();
+            stockInForm.ShowDialog();
         }
-
-        private StockOutForm _stockOutForm;
         private void stockOutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (_stockOutForm == null)
-            {
-                _stockOutForm = new StockOutForm();
-                _stockOutForm.Show();
-            }
-            else
-            {
-                _stockOutForm.Activate();
-            }
+            StockOutForm stockOutForm = new StockOutForm();
+            stockOutForm.ShowDialog();
         }
-
-        ItemReportForm _itemReport;
         private void itemSummaryReportToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (_itemReport == null)
-            {
-                _itemReport = new ItemReportForm();
-                _itemReport.Show();
-            }
-            else
-            {
-                _itemReport.Activate();
-            }
+            ItemReportForm itemReport = new ItemReportForm();
+            itemReport.ShowDialog();
         }
-
-        private SellsReportForm _sellsReport;
         private void sellsReportToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (_sellsReport == null)
-            {
-                _sellsReport = new SellsReportForm();
-                _sellsReport.Show();
-            }
-            else
-            {
-                _sellsReport.Activate();
-            }
+            SellsReportForm sellsReport = new SellsReportForm();
+            sellsReport.ShowDialog();
         }
-
-        private UserCreationForm _userCreationForm;
         private void manageUserToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            try
-            {
-                if (_userCreationForm== null)
-                {
-                    _userCreationForm= new UserCreationForm();
-                    _userCreationForm.Show();
-                }
-                else
-                {
-                    _userCreationForm.Activate();
-                }
-            }
-            catch (Exception exception)
-            {
-                throw new Exception(exception.Message);
-            }
+            UserCreationForm userCreationForm = new UserCreationForm();
+            userCreationForm.ShowDialog();
         }
     }
 }
