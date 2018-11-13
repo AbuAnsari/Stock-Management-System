@@ -172,7 +172,6 @@ namespace StockManagementApplication.UserInterfaces
                 {
                     string message = "Please Reorder this Item";
                     messageLabel.Text = message;
-                    return;
                 }
                 var isExist = IsExist(stock);
                 if (!isExist)

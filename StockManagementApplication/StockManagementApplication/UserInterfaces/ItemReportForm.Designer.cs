@@ -35,6 +35,7 @@
             this.categoryComboBox = new System.Windows.Forms.ComboBox();
             this.SearchButton = new System.Windows.Forms.Button();
             this.ItemReportDataGridView = new System.Windows.Forms.DataGridView();
+            this.messageLabel = new System.Windows.Forms.Label();
             this.serialDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.categoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.companyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -42,7 +43,6 @@
             this.availableQuantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.reorderLevelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.itemReportViewModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.messageLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.ItemReportDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemReportViewModelBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -80,7 +80,6 @@
             this.categoryComboBox.Name = "categoryComboBox";
             this.categoryComboBox.Size = new System.Drawing.Size(181, 21);
             this.categoryComboBox.TabIndex = 1;
-            this.categoryComboBox.SelectionChangeCommitted += new System.EventHandler(this.categoryComboBox_SelectionChangeCommitted);
             // 
             // SearchButton
             // 
@@ -108,6 +107,15 @@
             this.ItemReportDataGridView.Name = "ItemReportDataGridView";
             this.ItemReportDataGridView.Size = new System.Drawing.Size(632, 246);
             this.ItemReportDataGridView.TabIndex = 25;
+            // 
+            // messageLabel
+            // 
+            this.messageLabel.AutoSize = true;
+            this.messageLabel.ForeColor = System.Drawing.Color.Red;
+            this.messageLabel.Location = new System.Drawing.Point(141, 147);
+            this.messageLabel.Name = "messageLabel";
+            this.messageLabel.Size = new System.Drawing.Size(0, 13);
+            this.messageLabel.TabIndex = 26;
             // 
             // serialDataGridViewTextBoxColumn
             // 
@@ -150,15 +158,6 @@
             // itemReportViewModelBindingSource
             // 
             this.itemReportViewModelBindingSource.DataSource = typeof(StockManagementApplication.ViewModels.ItemReportViewModel);
-            // 
-            // messageLabel
-            // 
-            this.messageLabel.AutoSize = true;
-            this.messageLabel.ForeColor = System.Drawing.Color.Red;
-            this.messageLabel.Location = new System.Drawing.Point(141, 147);
-            this.messageLabel.Name = "messageLabel";
-            this.messageLabel.Size = new System.Drawing.Size(0, 13);
-            this.messageLabel.TabIndex = 26;
             // 
             // ItemReportForm
             // 

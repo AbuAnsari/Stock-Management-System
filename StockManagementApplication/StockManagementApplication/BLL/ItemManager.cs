@@ -42,7 +42,7 @@ namespace StockManagementApplication.BLL
             return reorderLevel;
         }
 
-        public List<ItemReportViewModel> GetItemReport(int categoryId, int? companyId)
+        public List<ItemReportViewModel> GetItemReport(int? categoryId, int? companyId)
         {
             var dataTable = _itemRepository.GetItemReport(categoryId, companyId);
             List<ItemReportViewModel> viewModels = new List<ItemReportViewModel>();
