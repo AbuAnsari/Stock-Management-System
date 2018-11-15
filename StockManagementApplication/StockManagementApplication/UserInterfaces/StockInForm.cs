@@ -146,12 +146,12 @@ namespace StockManagementApplication.UserInterfaces
                 if (isSave)
                 {
                     RefreshField();
-                    string successMessage = "Info Save Successfuuly";
+                    string successMessage = "Stock in Successfuuly";
                     messageLabel.Text = successMessage;
                     messageLabel.ForeColor = Color.Green;
                     return;
                 }
-                string failMessage = "Info Save Fail";
+                string failMessage = "Stock in Fail";
                 messageLabel.Text = failMessage;
             }
             catch (Exception exception)

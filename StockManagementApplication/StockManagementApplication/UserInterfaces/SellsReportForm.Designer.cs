@@ -95,9 +95,9 @@
             this.nameDataGridViewTextBoxColumn,
             this.quantityDataGridViewTextBoxColumn});
             this.sellItemsDataGridView.DataSource = this.sellItemViewModelBindingSource;
-            this.sellItemsDataGridView.Location = new System.Drawing.Point(72, 182);
+            this.sellItemsDataGridView.Location = new System.Drawing.Point(35, 166);
             this.sellItemsDataGridView.Name = "sellItemsDataGridView";
-            this.sellItemsDataGridView.Size = new System.Drawing.Size(424, 186);
+            this.sellItemsDataGridView.Size = new System.Drawing.Size(426, 202);
             this.sellItemsDataGridView.TabIndex = 4;
             // 
             // serialNoDataGridViewTextBoxColumn
@@ -128,7 +128,7 @@
             // 
             this.messageLabel.AutoSize = true;
             this.messageLabel.ForeColor = System.Drawing.Color.Red;
-            this.messageLabel.Location = new System.Drawing.Point(162, 150);
+            this.messageLabel.Location = new System.Drawing.Point(162, 146);
             this.messageLabel.Name = "messageLabel";
             this.messageLabel.Size = new System.Drawing.Size(0, 13);
             this.messageLabel.TabIndex = 7;

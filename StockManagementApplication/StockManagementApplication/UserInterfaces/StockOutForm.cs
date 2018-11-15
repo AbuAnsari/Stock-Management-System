@@ -370,7 +370,7 @@ namespace StockManagementApplication.UserInterfaces
                     var isSave = _stockOutManager.Save(_stockOuts);
                     if (isSave)
                     {
-                        string successMessage = "Info Save Successfully";
+                        string successMessage = "Stock Out Successfully";
                         messageLabel.Text = successMessage;
                         messageLabel.ForeColor = Color.Green;
                         ProductListDataGridView.DataSource = null;
@@ -378,7 +378,7 @@ namespace StockManagementApplication.UserInterfaces
                         _productViewModels.Clear();
                         return;
                     }
-                    string failMessage = "Info Save Fail";
+                    string failMessage = "Stock Out Fail";
                     messageLabel.Text = failMessage;
                 }
             }

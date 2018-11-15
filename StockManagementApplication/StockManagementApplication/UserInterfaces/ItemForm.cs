@@ -106,7 +106,8 @@ namespace StockManagementApplication.UserInterfaces
 
         public void RefreshField()
         {
-            itemNameTextBox.Text = "";
+            itemNameTextBox.Text = reorderLevelTextBox.Text = "";
+            companyComboBox.DataSource = null;
         }
     }
 }
