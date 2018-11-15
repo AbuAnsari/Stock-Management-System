@@ -23,13 +23,28 @@ namespace StockManagementApplication.DAL
             }
         }
 
-        public bool IsUserNameExist(UserInfo user)
+        public UserInfo GetByName(string name)
         {
             try
             {
-                var query = "SELECT * FROM Users WHERE Name='" + user.Name + "'";
+                var query = "SELECT * FROM Users WHERE Name='" + name + "'";
                 var reader = _genericRepository.ExecuteReader(query, _connectionString);
-                return reader.HasRows;
+                if (reader.HasRows)
+                {
+                    reader.Read();
+                    var userInfo = new UserInfo()
+                    {
+                        Id = Convert.ToInt32(reader["Id"]),
+                        Name = reader["Name"].ToString(),
+                        Password = reader["Password"].ToString(),
+                        CreateBy = reader["CreateBy"].ToString(),
+                        CrateDate = Convert.ToDateTime(reader["CrateDate"])
+                    };
+                    return userInfo;
+
+                }
+
+                return null;
             }
             catch (Exception e)
             {

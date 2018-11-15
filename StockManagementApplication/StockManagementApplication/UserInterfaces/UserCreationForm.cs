@@ -23,26 +23,25 @@ namespace StockManagementApplication.UserInterfaces
                     messageLabel.Text = validationMessage;
                     return;
                 }
-                var userInfo = new UserInfo();
-                userInfo.Name = userNameTextBox.Text;
-                userInfo.Password = passwordTextBox.Text;
-                userInfo.ConfirmPassword = confirmPasswordTextBox.Text;
-                userInfo.CreateBy = LoggerInfo.UserName;
-                userInfo.CrateDate = DateTime.Now;
-                if (userInfo.Password != userInfo.ConfirmPassword)
-                {
-                    var validationMessage = "Password not match";
-                    messageLabel.Text = validationMessage;
-                    return;
-                }
-                var isUserNameExist = _userManager.IsUserNameExist(userInfo);
+                var isUserNameExist = _userManager.IsUserNameExist(userNameTextBox.Text);
                 if (isUserNameExist)
                 {
                     var validationMessage = "Username Already Exist";
                     messageLabel.Text = validationMessage;
                     return;
                 }
-
+                if (passwordTextBox.Text != confirmPasswordTextBox.Text)
+                {
+                    var validationMessage = "Password not match";
+                    messageLabel.Text = validationMessage;
+                    return;
+                }
+                var userInfo = new UserInfo();
+                userInfo.Name = userNameTextBox.Text;
+                userInfo.Password = passwordTextBox.Text;
+                userInfo.ConfirmPassword = confirmPasswordTextBox.Text;
+                userInfo.CreateBy = LoggerInfo.UserName;
+                userInfo.CrateDate = DateTime.Now;
                 var isSave = _userManager.Save(userInfo);
                 if (isSave)
                 {

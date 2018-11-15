@@ -44,6 +44,7 @@ namespace StockManagementApplication.UserInterfaces
                 itemComboBox.DataSource = null;
                 reorderLevelTextBox.Text = "";
                 avialableQuantityTextBox.Text = "";
+                messageLabel.Text = "";
                 if (categoryComboBox.SelectedValue != null)
                 {
                     var item = new Item();
@@ -67,6 +68,7 @@ namespace StockManagementApplication.UserInterfaces
                 itemComboBox.DataSource = null;
                 reorderLevelTextBox.Text = "";
                 avialableQuantityTextBox.Text = "";
+                messageLabel.Text = "";
                 if (companyComboBox.SelectedValue != null)
                 {
                     Item item = new Item();
@@ -87,6 +89,7 @@ namespace StockManagementApplication.UserInterfaces
         {
             try
             {
+                messageLabel.Text = "";
                 if (itemComboBox.SelectedValue != null)
                 {
                     var item = new Item();
@@ -143,6 +146,7 @@ namespace StockManagementApplication.UserInterfaces
         {
             try
             {
+                messageLabel.Text = "";
                 int qty = Convert.ToInt32(quantityTextBox.Text);
                 if (categoryComboBox.SelectedValue == null || companyComboBox.SelectedValue == null || itemComboBox.SelectedValue == null || qty == 0)
                 {
@@ -170,7 +174,7 @@ namespace StockManagementApplication.UserInterfaces
                 var isReorder = ReorderLevel(stock);
                 if (isReorder)
                 {
-                    string message = "Please Reorder this Item";
+                    string message = "Please Reorder this Item, Store Quantity of this Item is Low";
                     messageLabel.Text = message;
                 }
                 var isExist = IsExist(stock);
@@ -289,6 +293,7 @@ namespace StockManagementApplication.UserInterfaces
         {
             try
             {
+                messageLabel.Text = "";
                 if (_stockOuts != null)
                 {
                     foreach (var stockOut in _stockOuts)
@@ -302,7 +307,8 @@ namespace StockManagementApplication.UserInterfaces
                     var isSave = _stockOutManager.Save(_stockOuts);
                     if (isSave)
                     {
-                        string successMessage = "Info Save Successfully";
+                        RefreshField();
+                        string successMessage = "Item Sell Successfully";
                         messageLabel.Text = successMessage;
                         messageLabel.ForeColor = Color.Green;
                         ProductListDataGridView.DataSource = null;
@@ -310,7 +316,7 @@ namespace StockManagementApplication.UserInterfaces
                         _productViewModels.Clear();
                         return;
                     }
-                    string failMessage = "Info Save Fail";
+                    string failMessage = "Item Sell Fail";
                     messageLabel.Text = failMessage;
                 }
             }
@@ -323,6 +329,7 @@ namespace StockManagementApplication.UserInterfaces
         {
             try
             {
+                messageLabel.Text = "";
                 if (_stockOuts != null)
                 {
                     foreach (var stockOut in _stockOuts)
@@ -336,7 +343,8 @@ namespace StockManagementApplication.UserInterfaces
                     var isSave = _stockOutManager.Save(_stockOuts);
                     if (isSave)
                     {
-                        string successMessage = "Info Save Successfully";
+                        RefreshField();
+                        string successMessage = "Item Stock Out Successfully";
                         messageLabel.Text = successMessage;
                         messageLabel.ForeColor = Color.Green;
                         ProductListDataGridView.DataSource = null;
@@ -344,7 +352,7 @@ namespace StockManagementApplication.UserInterfaces
                         _productViewModels.Clear();
                         return;
                     }
-                    string failMessage = "Info Save Fail";
+                    string failMessage = "Item Stock Out Fail";
                     messageLabel.Text = failMessage;
                 }
             }
@@ -357,6 +365,7 @@ namespace StockManagementApplication.UserInterfaces
         {
             try
             {
+                messageLabel.Text = "";
                 if (_stockOuts != null)
                 {
                     foreach (var stockOut in _stockOuts)
@@ -370,6 +379,7 @@ namespace StockManagementApplication.UserInterfaces
                     var isSave = _stockOutManager.Save(_stockOuts);
                     if (isSave)
                     {
+                        RefreshField();
                         string successMessage = "Stock Out Successfully";
                         messageLabel.Text = successMessage;
                         messageLabel.ForeColor = Color.Green;

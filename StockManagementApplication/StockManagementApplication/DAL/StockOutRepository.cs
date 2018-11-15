@@ -38,7 +38,7 @@ namespace StockManagementApplication.DAL
             try
             {
                 var query = "SELECT i.Name, s.OutQuantity FROM Stocks s LEFT JOIN Items i ON i.Id= s.ItemId WHERE s.OutType= 1 " +
-                            "AND s.ReceiveDate BETWEEN '" + fromDate + "' AND '" + toDate + "'";
+                            "AND s.ReceiveDate BETWEEN '" + fromDate + "' AND '" + toDate.AddDays(1) + "'";
                 var dataAdapter = _genericRepository.ExecuteAdapter(query, _connectionString);
                 var dataTable = new DataTable();
                 dataAdapter.Fill(dataTable);

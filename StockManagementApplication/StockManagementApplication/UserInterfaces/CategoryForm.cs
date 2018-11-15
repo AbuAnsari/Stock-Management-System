@@ -24,23 +24,28 @@ namespace StockManagementApplication.UserInterfaces
         {
             try
             {
+                messageLabel.Text = "";
                 if (nameTextBox.Text == "")
                 {
                     var validationMessage = "Please give category name";
                     messageLabel.Text = validationMessage;
                     return;
                 }
-                var category = new Category();
-                category.Name = nameTextBox.Text;
-                category.CreateBy = LoggerInfo.UserName;
-                category.CreateDate = DateTime.Now;
-                var isExist = _categoryManager.IsNameExist(category);
+
+                var isExist = _categoryManager.IsNameExist(nameTextBox.Text);
                 if (isExist)
                 {
                     var validationMessage = "Name already exist. Please give another name";
                     messageLabel.Text = validationMessage;
                     return;
                 }
+
+                var category = new Category
+                {
+                    Name = nameTextBox.Text,
+                    CreateBy = LoggerInfo.UserName,
+                    CreateDate = DateTime.Now
+                };
                 var isSave = _categoryManager.Save(category);
                 if (isSave)
                 {
@@ -82,24 +87,29 @@ namespace StockManagementApplication.UserInterfaces
         {
             try
             {
+                messageLabel.Text = "";
                 if (nameTextBox.Text == "")
                 {
                     var validationMessage = "Please give category name";
                     messageLabel.Text = validationMessage;
                     return;
                 }
-                var category = new Category();
-                category.Id = Convert.ToInt32(hiddenLabel.Text);
-                category.Name = nameTextBox.Text;
-                category.UpdateBy = LoggerInfo.UserName;
-                category.UpdateDate = DateTime.Now;
-                var isExist = _categoryManager.IsNameExist(category);
+
+                var isExist = _categoryManager.IsNameExist(nameTextBox.Text);
                 if (isExist)
                 {
                     var validationMessage = "Name already exist. Please give another name";
                     messageLabel.Text = validationMessage;
                     return;
                 }
+
+                var category = new Category
+                {
+                    Id = Convert.ToInt32(hiddenLabel.Text),
+                    Name = nameTextBox.Text,
+                    UpdateBy = LoggerInfo.UserName,
+                    UpdateDate = DateTime.Now
+                };
 
                 var isUpdate = _categoryManager.Update(category);
                 if (isUpdate)

@@ -41,6 +41,7 @@ namespace StockManagementApplication.UserInterfaces
                 itemComboBox.DataSource = null;
                 reorderLevelTextBox.Text = "";
                 avialableQuantityTextBox.Text = "";
+                messageLabel.Text = "";
                 if (categoryComboBox.SelectedValue != null)
                 {
                     var item = new Item();
@@ -64,6 +65,7 @@ namespace StockManagementApplication.UserInterfaces
                 itemComboBox.DataSource = null;
                 reorderLevelTextBox.Text = "";
                 avialableQuantityTextBox.Text = "";
+                messageLabel.Text = "";
                 if (companyComboBox.SelectedValue != null)
                 {
                     Item item = new Item();
@@ -84,6 +86,7 @@ namespace StockManagementApplication.UserInterfaces
         {
             try
             {
+                messageLabel.Text = "";
                 if (itemComboBox.SelectedValue != null)
                 {
                     var item = new Item();

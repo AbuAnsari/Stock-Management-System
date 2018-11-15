@@ -25,20 +25,34 @@ namespace StockManagementApplication.DAL
             }
         }
 
-        public bool IsNameExist(Item item)
+        public Item IsNameExist(string name)
         {
             try
             {
-                var query = "SELECT * FROM Items WHERE Name='" + item.Name + "'";
+                var query = "SELECT * FROM Items WHERE Name='" + name + "'";
                 var reader = _genericRepository.ExecuteReader(query, _connectionString);
-                return reader.HasRows;
+                if (reader.HasRows)
+                {
+                    reader.Read();
+                    var item = new Item()
+                    {
+                        Id = Convert.ToInt32(reader["Id"]),
+                        CategoryId = Convert.ToInt32(reader["CategoryId"]),
+                        CompanyId = Convert.ToInt32(reader["CompanyId"]),
+                        Name = reader["Name"].ToString(),
+                        ReorderLevel = Convert.ToInt32(reader["ReorderLevel"]),
+                        CreateBy = reader["CreateBy"].ToString(),
+                        CreateDate = Convert.ToDateTime(reader["CreateDate"])
+                    };
+                    return item;
+                }
+                return null;
             }
             catch (Exception e)
             {
                 throw new Exception(e.Message);
             }
         }
-
         public DataTable GetAllCompanyByCategoryId(Item item)
         {
             try

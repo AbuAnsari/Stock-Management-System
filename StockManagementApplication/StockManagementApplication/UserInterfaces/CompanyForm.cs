@@ -20,9 +20,18 @@ namespace StockManagementApplication.UserInterfaces
         {
             try
             {
+                messageLabel.Text = "";
                 if (nameTextBox.Text == "")
                 {
                     string validationMessage = "Please give Name";
+                    messageLabel.Text = validationMessage;
+                    return;
+                }
+
+                var isExist = _companyManager.IsNameExist(nameTextBox.Text);
+                if (isExist)
+                {
+                    string validationMessage = "Name already Exist...Please give another name";
                     messageLabel.Text = validationMessage;
                     return;
                 }
@@ -31,14 +40,6 @@ namespace StockManagementApplication.UserInterfaces
                 company.Name = nameTextBox.Text;
                 company.CreateBy = LoggerInfo.UserName;
                 company.CreateDate = DateTime.Now;
-                var isExist = _companyManager.IsNameExist(company);
-                if (isExist)
-                {
-                    string validationMessage = "Name already Exist...Please give another name";
-                    messageLabel.Text = validationMessage;
-                    return;
-                }
-
                 var isSave = _companyManager.Save(company);
                 if (isSave)
                 {
@@ -66,8 +67,6 @@ namespace StockManagementApplication.UserInterfaces
                 messageLabel.Text = e.Message;
             }
         }
-
-
 
     }
 }

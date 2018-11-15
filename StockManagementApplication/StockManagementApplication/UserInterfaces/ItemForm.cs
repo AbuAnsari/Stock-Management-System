@@ -60,10 +60,18 @@ namespace StockManagementApplication.UserInterfaces
         {
             try
             {
+                messageLabel.Text = "";
                 if (categoryComboBox.SelectedItem == null || companyComboBox.SelectedItem == null ||
                     itemNameTextBox.Text == "")
                 {
                     var validationMessage = "Please fillup the required field";
+                    messageLabel.Text = validationMessage;
+                    return;
+                }
+                var isNameExist = _itemManager.IsNameExist(itemNameTextBox.Text);
+                if (isNameExist)
+                {
+                    var validationMessage = "Item Name already exist";
                     messageLabel.Text = validationMessage;
                     return;
                 }
@@ -75,14 +83,6 @@ namespace StockManagementApplication.UserInterfaces
                 item.ReorderLevel = Convert.ToInt32(reorderLevelTextBox.Text);
                 item.CreateBy = LoggerInfo.UserName;
                 item.CreateDate = DateTime.Now;
-                var isNameExist = _itemManager.IsNameExist(item);
-                if (isNameExist)
-                {
-                    var validationMessage = "Item Name already exist";
-                    messageLabel.Text = validationMessage;
-                    return;
-                }
-
                 var isSave = _itemManager.Save(item);
                 if (isSave)
                 {
@@ -90,6 +90,7 @@ namespace StockManagementApplication.UserInterfaces
                     var successMessage = "Item Info Save Successfully";
                     messageLabel.ForeColor = Color.Green;
                     messageLabel.Text = successMessage;
+                    reorderLevelTextBox.Text = 0.ToString();
                     return;
                 }
 
@@ -106,8 +107,7 @@ namespace StockManagementApplication.UserInterfaces
 
         public void RefreshField()
         {
-            itemNameTextBox.Text = reorderLevelTextBox.Text = "";
-            companyComboBox.DataSource = null;
+            companyComboBox.Text = itemNameTextBox.Text = reorderLevelTextBox.Text = "";
         }
     }
 }

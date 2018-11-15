@@ -15,9 +15,13 @@ namespace StockManagementApplication.BLL
             var save = _companyRepository.Save(company);
             return save;
         }
-        public bool IsNameExist(Company company)
+        public bool IsNameExist(string name)
         {
-            var isExist = _companyRepository.IsNameExist(company);
+            bool isExist = false;
+            var company = _companyRepository.GetByName(name);
+            if (company != null)
+                isExist = true;
+
             return isExist;
         }
 

@@ -16,9 +16,12 @@ namespace StockManagementApplication.BLL
             return save;
         }
 
-        public bool IsNameExist(Category category)
+        public bool IsNameExist(string name)
         {
-            var isExist = _categoryRepository.IsNameExist(category);
+            var isExist = false;
+            var category = _categoryRepository.GetByName(name);
+            if (category != null)
+                isExist = true;
             return isExist;
         }
 

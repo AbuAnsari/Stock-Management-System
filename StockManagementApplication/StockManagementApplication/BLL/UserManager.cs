@@ -13,9 +13,13 @@ namespace StockManagementApplication.BLL
             return save;
         }
 
-        public bool IsUserNameExist(UserInfo user)
+        public bool IsUserNameExist(string name)
         {
-            var isExist = _userRepository.IsUserNameExist(user);
+            var isExist = false;
+            var user = _userRepository.GetByName(name);
+            if (user != null)
+                isExist = true;
+
             return isExist;
         }
 

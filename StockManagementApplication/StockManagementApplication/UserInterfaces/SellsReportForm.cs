@@ -16,6 +16,9 @@ namespace StockManagementApplication.UserInterfaces
         {
             try
             {
+                sellItemsDataGridView.DataSource = null;
+                messageLabel.Text = "";
+
                 if (fromDatDateTimePicker.Text == "" || toDateDateTimePicker.Text == "")
                 {
                     string validationMessage = "Please Select Required Fields";
@@ -26,7 +29,7 @@ namespace StockManagementApplication.UserInterfaces
 
                 var fromDate = Convert.ToDateTime(fromDatDateTimePicker.Text);
                 var toDate = Convert.ToDateTime(toDateDateTimePicker.Text);
-                if (toDate.Day <= fromDate.Day)
+                if (toDate.Day < fromDate.Day)
                 {
                     string validationMessage = "To Date Must be Equal or Greater than from date";
                     messageLabel.Text = validationMessage;

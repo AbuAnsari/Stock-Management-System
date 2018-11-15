@@ -24,13 +24,24 @@ namespace StockManagementApplication.DAL
             }
         }
 
-        public bool IsNameExist(Category category)
+        public Category GetByName(string name)
         {
             try
             {
-                var query = "SELECT * FROM Categories WHERE Name='" + category.Name + "'";
+                var query = "SELECT * FROM Categories WHERE Name='" + name + "'";
                 var reader = _genericRepository.ExecuteReader(query, _connectionString);
-                return reader.HasRows;
+                if (reader.HasRows)
+                {
+                    reader.Read();
+                    var category = new Category()
+                    {
+                        Id = Convert.ToInt32(reader["Id"]),
+                        Name = reader["Name"].ToString(),
+                        CreateBy = reader["CreateBy"].ToString()
+                    };
+                    return category;
+                }
+                return null;
             }
             catch (Exception e)
             {
@@ -56,8 +67,8 @@ namespace StockManagementApplication.DAL
         {
             try
             {
-                var query = "UPDATE Categories SET Name='" + category.Name + "', UpdateBy='" + category.UpdateBy +"', UpdateDate='" + category.UpdateDate + "'" +
-                            " WHERE Id='"+category.Id+"'";
+                var query = "UPDATE Categories SET Name='" + category.Name + "', UpdateBy='" + category.UpdateBy + "', UpdateDate='" + category.UpdateDate + "'" +
+                            " WHERE Id='" + category.Id + "'";
                 var rowAffected = _genericRepository.ExecuteNonQuery(query, _connectionString);
                 return rowAffected > 0;
             }

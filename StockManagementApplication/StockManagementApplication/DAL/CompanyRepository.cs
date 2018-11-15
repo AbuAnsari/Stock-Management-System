@@ -24,13 +24,24 @@ namespace StockManagementApplication.DAL
             }
         }
 
-        public bool IsNameExist(Company company)
+        public Company GetByName(string name)
         {
             try
             {
-                var query = "SELECT * FROM Companies WHERE Name='" + company.Name + "'";
+                var query = "SELECT * FROM Companies WHERE Name='" + name + "'";
                 var reader = _genericRepository.ExecuteReader(query, _connectionString);
-                return reader.HasRows;
+                if (reader.HasRows)
+                {
+                    reader.Read();
+                    var company = new Company()
+                    {
+                        Id = Convert.ToInt32(reader["Id"]),
+                        Name = reader["Name"].ToString(),
+                        CreateBy = reader["CreateBy"].ToString()
+                    };
+                    return company;
+                }
+                return null;
             }
             catch (Exception e)
             {

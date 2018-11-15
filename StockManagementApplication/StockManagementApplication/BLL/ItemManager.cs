@@ -18,10 +18,14 @@ namespace StockManagementApplication.BLL
             return save;
         }
 
-        public bool IsNameExist(Item item)
+        public bool IsNameExist(string name)
         {
-            var reader = _itemRepository.IsNameExist(item);
-            return reader;
+            bool isExist = false;
+            var item = _itemRepository.IsNameExist(name);
+            if (item != null)
+                isExist = true;
+
+            return isExist;
         }
 
         public DataTable GetAllCompanyByCategoryId(Item item)
